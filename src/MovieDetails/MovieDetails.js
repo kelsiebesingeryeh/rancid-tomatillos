@@ -1,15 +1,21 @@
 import React from 'react'
 
-const MovieDetails = ({id, poster_path, backdrop_path, title, average_rating, release_date}) => {
+const MovieDetails = ({ currentMovie }) => {
     return (
       <section className="movieDetails">
-        <h2>{title}</h2>
-        <img src={poster_path} alt={`${title}-poster`} />
-        <img src={backdrop_path} alt={`${title}-poster`} />
-        <p>{average_rating}</p>
-        <p>{release_date}</p>
+        <h2>{currentMovie.title}</h2>
+        <img
+          src={currentMovie.poster_path}
+          alt={`${currentMovie.title}-poster`}
+        />
+        <img
+          src={currentMovie.backdrop_path}
+          alt={`${currentMovie.title}-poster`}
+        />
+        <p>{currentMovie.average_rating}</p>
+        <p>{currentMovie.release_date}</p>
       </section>
-    )
+    );
 }
 
 export default MovieDetails

@@ -19,6 +19,7 @@ class App extends Component {
     this.setState({
       currentMovie: targetedMovie
     })    
+    console.log(this.state.currentMovie) 
   }
 
   render() {
@@ -32,9 +33,9 @@ class App extends Component {
           movies={this.state.movies}
           displayMovieDetails={this.displayMovieDetails}
         />
-        {this.state.currentMovie && 
+        {this.state.currentMovie &&
         <MovieDetails currentMovie={this.state.currentMovie} />
-  }
+        }
       </main>
     );
   }
