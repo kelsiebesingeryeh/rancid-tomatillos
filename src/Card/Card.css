@@ -1,0 +1,31 @@
+.movieCard {
+    display: flex;
+}
+
+.moviePosterImage {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.viewRatings {
+    display: flex;
+    align-self: flex-end;
+    background-color: #F7C836;
+    width: 15%;
+    padding: 0.25rem;
+    border-radius: 5px;
+    color: #1B2B7B;
+    margin-left: -19%;
+    margin-bottom: 2%;
+}
+
+.movieRating {
+    margin: auto;
+}
+
+.star {
+    width: 30%;
+    object-fit: contain;
+    margin: auto;
+}
