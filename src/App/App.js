@@ -10,16 +10,17 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      currentMovie: {}
+      currentMovie: {},
+      isHomePage: true
     }
   }
 
   displayMovieDetails = (id) => {
   const targetedMovie = this.state.movies.find(movie => movie.id === id)
     this.setState({
-      currentMovie: targetedMovie
+      currentMovie: targetedMovie,
+      isHomePage: false
     })    
-    console.log(this.state.currentMovie) 
   }
 
   render() {
@@ -29,12 +30,16 @@ class App extends Component {
           <img className="tomatilloLogo" src={tomatillo} />
           <h1>Rancid Tomatillos</h1>
         </header>
-        <Movies
-          movies={this.state.movies}
-          displayMovieDetails={this.displayMovieDetails}
-        />
+        
+        {this.state.isHomePage && 
+          <Movies
+            movies={this.state.movies}
+            displayMovieDetails={this.displayMovieDetails}
+          />
+        }
+
         {this.state.currentMovie &&
-        <MovieDetails currentMovie={this.state.currentMovie} />
+          <MovieDetails currentMovie={this.state.currentMovie} />
         }
       </main>
     );
