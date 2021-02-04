@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Movies from '../Movies/Movies';
 import movieData from '../Data/movieData';
 
 class App extends Component {
@@ -11,7 +12,10 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Rancid Tomatillos</h1>
+      <main>
+        <h1>Rancid Tomatillos</h1>
+        <Movies />
+      </main>
     )
   }
 }
