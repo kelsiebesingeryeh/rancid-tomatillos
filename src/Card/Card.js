@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({title, posterImage, id}) => {
   return (
     <div>
-      <p>Image here</p>
+      <img src={posterImage} alt={`${title} poster`}/>
     </div>
   )
 }
