@@ -13,3 +13,8 @@ header {
   display: flex;
   justify-content: center;
 }
+
+.tomatilloLogo {
+  width: 6rem;
+  object-fit: cover;
+}
