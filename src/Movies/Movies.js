@@ -11,8 +11,9 @@ const Movies = ({movies}) => {
         posterImage={movie["poster_path"]}
         key={movie.id}
         id={movie.id}
+        avgRating={movie["average_rating"]}
       />
-    )
+    );
   })
 
   return (
