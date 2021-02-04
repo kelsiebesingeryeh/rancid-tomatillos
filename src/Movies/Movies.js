@@ -2,11 +2,21 @@ import React from 'react';
 import Card from '../Card/Card';
 import './Movies.css';
 
-const Movies = () => {
+const Movies = ({movies}) => {
+  console.log(movies)
+  const moviesToDisplay = movies.map(movie => {
+    return (
+      <Card
+        posterImage={movie["poster_path"]}
+        key={movie.id}
+        id={movie.id}
+      />
+    )
+  })
+
   return (
     <section className="movieContainer">
-      <p>Movies go here</p>
-      <Card />
+        {moviesToDisplay}
     </section>
   )
 }
