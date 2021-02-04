@@ -23,6 +23,13 @@ class App extends Component {
     })    
   }
 
+  backToMain = () => {
+    this.setState({
+      isHomePage: true,
+      currentMovie: {}
+    })
+  }
+
   render() {
     return (
       <main>
@@ -30,17 +37,20 @@ class App extends Component {
           <img className="tomatilloLogo" src={tomatillo} />
           <h1>Rancid Tomatillos</h1>
         </header>
-        
-        {this.state.isHomePage && 
+
+        {this.state.isHomePage && (
           <Movies
             movies={this.state.movies}
             displayMovieDetails={this.displayMovieDetails}
           />
-        }
+        )}
 
-        {this.state.currentMovie &&
-          <MovieDetails currentMovie={this.state.currentMovie} />
-        }
+        {this.state.currentMovie && !this.state.isHomePage && (
+          <MovieDetails
+            currentMovie={this.state.currentMovie}
+            backToMain={this.backToMain}
+          />
+        )}
       </main>
     );
   }

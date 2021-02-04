@@ -1,8 +1,9 @@
 import React from 'react'
 
-const MovieDetails = ({ currentMovie }) => {
+const MovieDetails = ({ currentMovie, backToMain }) => {
     return (
       <section className="movieDetails">
+        <button onClick={backToMain}>Back to Main</button>
         <h2>{currentMovie.title}</h2>
         <img
           src={currentMovie.poster_path}
