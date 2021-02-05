@@ -18,13 +18,13 @@ header {
   height: 300px;
 }
 
-.titleAndLogo {
+.title {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
+/*
 .tomatilloLogo {
   width: 10rem;
   object-fit: contain;
-}
+} */

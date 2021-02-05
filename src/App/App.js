@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import movieData from '../Data/movieData';
 import './App.css'
-import tomatillo from '../assets/tomatillo.png'
+// import tomatillo from '../assets/tomatillo.png'
 import MovieDetails from '../MovieDetails/MovieDetails'
 
 class App extends Component {
@@ -34,8 +34,7 @@ class App extends Component {
     return (
       <main>
         <header>
-          <span className="titleAndLogo">
-            <img className="tomatilloLogo" src={tomatillo} />
+          <span className="title">
             <h1>Rancid Tomatillos</h1>
           </span>
         </header>
@@ -59,11 +58,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-//movies component - all movies
-// we click on a single movie to display a moviedetail component
-// onClicks needs to happen on the poster image in Card component
-// then that triggers a displayCards shown from moviedetail component
-//find the movie in that movies data that matches the id that we targeted by a click, we pass that to
-// moviedetails as props
