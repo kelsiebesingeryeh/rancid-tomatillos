@@ -1,16 +1,24 @@
 import React from 'react'
+import './Header.css'
 
 const Header = ( {movies}) => {
   let randomMovie = (Math.floor(Math.random() * movies.length))
-  console.log('hello', movies)
   let randomMovieHeader = movies[randomMovie]
-  console.log('second', randomMovieHeader);
   let randomMoveImg = randomMovieHeader['backdrop_path']
-  console.log('third', randomMoveImg)
+  let year = randomMovieHeader.release_date.split("-")[0];
+  
   return (
-    <>
-      <img className="headerImage" src={randomMoveImg} />
-    </>
+    <header className="mainHeader">
+      <div className="movieDetailsInfo">
+        <h2 className="headerTitle">{randomMovieHeader.title}</h2>
+        <div className="headerText">
+          <p>{year}</p>
+        </div>
+      </div>
+      <div className="randomMovieImage">
+        <img className="headerImage" src={randomMoveImg} />
+      </div>
+    </header>
   );
 }
 
