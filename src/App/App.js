@@ -20,7 +20,7 @@ class App extends Component {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
       .then(movies => this.setState({movies: movies.movies}))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
   displayMovieDetails = (id) => {
@@ -61,6 +61,8 @@ class App extends Component {
             backToMain={this.backToMain}
           />
         )}
+
+        {this.state.error && <h2 className="errorMessage">{this.state.error}</h2>}
       </main>
     );
   }
