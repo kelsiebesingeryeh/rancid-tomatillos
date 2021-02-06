@@ -5,6 +5,7 @@ import './App.css'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
+import SideBar from '../SideBar/SideBar'
 
 class App extends Component {
   constructor() {
@@ -52,15 +53,16 @@ class App extends Component {
         }
 
         {this.state.isHomePage && this.state.movies.length && (
-          <>
-            <Header 
-            movies={this.state.movies}
-            />
-            <Movies
+            <>
+              <SideBar />
+              <Header 
               movies={this.state.movies}
-              displayMovieDetails={this.displayMovieDetails}
-            />
-          </>
+              />
+              <Movies
+                movies={this.state.movies}
+                displayMovieDetails={this.displayMovieDetails}
+              />
+            </>
         )}
 
         {this.state.currentMovie && !this.state.isHomePage && (

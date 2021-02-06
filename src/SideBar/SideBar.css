@@ -1,0 +1,10 @@
+.homeIcon {
+    width: 3%;
+    padding: 1rem;
+}
+
+aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

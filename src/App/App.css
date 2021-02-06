@@ -7,7 +7,9 @@ body {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 2.5rem;
+  padding-right: 1rem;
+  margin: 0;
   font-family: 'Londrina Outline', cursive;
 }
 
