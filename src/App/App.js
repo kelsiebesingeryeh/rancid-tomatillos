@@ -46,32 +46,28 @@ class App extends Component {
   render() {
     return (
       <main>
-        {this.state.loading &&
+        {this.state.loading && (
           <>
             <h2>Loading...</h2>
           </>
-        }
+        )}
 
         {this.state.isHomePage && this.state.movies.length && (
-            <>
-              <SideBar />
-              <Header 
+          <>
+            <SideBar backToMain={this.backToMain} />
+            <Header movies={this.state.movies} />
+            <Movies
               movies={this.state.movies}
-              />
-              <Movies
-                movies={this.state.movies}
-                displayMovieDetails={this.displayMovieDetails}
-              />
-            </>
+              displayMovieDetails={this.displayMovieDetails}
+            />
+          </>
         )}
 
         {this.state.currentMovie && !this.state.isHomePage && (
           <>
-          <MovieDetailsHeader currentMovie={this.state.currentMovie} />
-          <MovieDetails
-            currentMovie={this.state.currentMovie}
-            backToMain={this.backToMain}
-          />
+            <SideBar backToMain={this.backToMain} />
+            <MovieDetailsHeader currentMovie={this.state.currentMovie} />
+            <MovieDetails currentMovie={this.state.currentMovie} />
           </>
         )}
 

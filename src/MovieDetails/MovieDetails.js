@@ -1,11 +1,11 @@
 import React from 'react';
 import './MovieDetails.css';
 
-const MovieDetails = ({ currentMovie, backToMain }) => {
+const MovieDetails = ({ currentMovie }) => {
   const date = new Date(currentMovie.release_date)
   return (
     <section className="movieDetails">
-      <button onClick={backToMain}>Back to Main</button>
+      {/* <button >Back to Main</button> */}
       <div className="movieDetailsCard">
         <img
           className="poster"
