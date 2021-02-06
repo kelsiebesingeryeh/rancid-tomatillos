@@ -2,7 +2,6 @@ import React from 'react';
 import './MovieDetails.css';
 
 const MovieDetails = ({ currentMovie, backToMain }) => {
-  console.log('currentMovie', currentMovie)
   const date = new Date(currentMovie.release_date)
   return (
     <section className="movieDetails">
@@ -39,12 +38,12 @@ const MovieDetails = ({ currentMovie, backToMain }) => {
           </ul>
         </span>
       </div>
-      <div className="trailerContainer">
+      {/* <div className="trailerContainer">
         <img className="trailer"
           src={currentMovie.backdrop_path}
           alt={`${currentMovie.title}-poster`}
         />
-      </div>
+      </div> */}
     </section>
   );
 }
