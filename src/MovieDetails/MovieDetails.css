@@ -1,0 +1,42 @@
+.movieDetails {
+  padding: 1rem;
+}
+
+.movieDetailsCard {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.poster {
+  width: 50%;
+}
+
+.movieInfo {
+  flex-direction: column;
+  margin-left: 5%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+.trailerContainer {
+  object-fit: cover;
+}
+
+.trailer {
+  width: 100%;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;;
+  border-radius: 5px;
+  background-color: #FFF;
+  padding: 0.5%;
+}
