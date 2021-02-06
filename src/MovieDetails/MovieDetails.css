@@ -9,7 +9,7 @@
 }
 
 .poster {
-  width: 50%;
+  width: 30%;
 }
 
 .movieInfo {
@@ -22,8 +22,22 @@ h2 {
   margin-top: 0;
 }
 
-p {
-  font-size: 1.25rem;
+.movieOverview {
+  font-size: .85rem;
+}
+
+.movieDetailsList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.movieDetailsData {
+  list-style-type: none;
+}
+
+.listDetails {
+  display: flex;
+  font-size: .85rem;
 }
 
 .trailerContainer {

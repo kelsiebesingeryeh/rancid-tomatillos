@@ -1,13 +1,19 @@
 .movieCard {
     display: flex;
+    flex-direction: column;
 }
 
 .moviePosterImage {
     height: 100%;
     width: 100%;
     object-fit: contain;
+    transition: transform 500ms;
 }
 
+.moviePosterImage:hover {
+    transform: scale(1.03);
+}
+ 
 .viewRatings {
     display: flex;
     align-self: flex-end;
@@ -18,6 +24,10 @@
     color: #1B2B7B;
     margin-left: -19%;
     margin-bottom: 2%;
+}
+
+.movieTitle {
+    margin: 2%;
 }
 
 .movieRating {

@@ -3,6 +3,9 @@ import Movies from '../Movies/Movies';
 import './App.css'
 // import tomatillo from '../assets/tomatillo.png'
 import MovieDetails from '../MovieDetails/MovieDetails'
+import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
+import Header from '../Header/Header'
+import SideBar from '../SideBar/SideBar'
 
 class App extends Component {
   constructor() {
@@ -11,14 +14,15 @@ class App extends Component {
       movies: [],
       currentMovie: {},
       isHomePage: true,
-      error: ''
+      error: '',
+      loading: true
     }
   }
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
-      .then(movies => this.setState({movies: movies.movies}))
+      .then(movies => this.setState({movies: movies.movies, loading: false}))
       .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
@@ -27,7 +31,8 @@ class App extends Component {
       .then(response => response.json())
       .then(targetedMovie => this.setState({
           currentMovie: targetedMovie.movie,
-          isHomePage: false
+          isHomePage: false,
+          loading: false
         }))
   }
 
@@ -41,27 +46,34 @@ class App extends Component {
   render() {
     return (
       <main>
-        <header>
-          <span className="title">
-            <h1>Rancid Tomatillos</h1>
-          </span>
-        </header>
+        {this.state.loading && (
+          <>
+            <h2>Loading...</h2>
+          </>
+        )}
 
-        {this.state.isHomePage && (
-          <Movies
-            movies={this.state.movies}
-            displayMovieDetails={this.displayMovieDetails}
-          />
+        {this.state.isHomePage && this.state.movies.length && (
+          <>
+            <SideBar backToMain={this.backToMain} />
+            <Header movies={this.state.movies} />
+            <Movies
+              movies={this.state.movies}
+              displayMovieDetails={this.displayMovieDetails}
+            />
+          </>
         )}
 
         {this.state.currentMovie && !this.state.isHomePage && (
-          <MovieDetails
-            currentMovie={this.state.currentMovie}
-            backToMain={this.backToMain}
-          />
+          <>
+            <SideBar backToMain={this.backToMain} />
+            <MovieDetailsHeader currentMovie={this.state.currentMovie} />
+            <MovieDetails currentMovie={this.state.currentMovie} />
+          </>
         )}
 
-        {this.state.error && <h2 className="errorMessage">{this.state.error}</h2>}
+        {this.state.error && (
+          <h2 className="errorMessage">{this.state.error}</h2>
+        )}
       </main>
     );
   }
