@@ -4,6 +4,7 @@ import './App.css'
 // import tomatillo from '../assets/tomatillo.png'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
+import Header from '../Header/Header'
 
 class App extends Component {
   constructor() {
@@ -44,13 +45,17 @@ class App extends Component {
   render() {
     return (
       <main>
-        {this.state.loading && <h2>Loading...</h2>}
-
-        {this.state.isHomePage && (
+        {this.state.loading &&
           <>
-            <header>
-              <h1>Rancid Tomatillos</h1>
-            </header>
+            <h2>Loading...</h2>
+          </>
+        }
+
+        {this.state.isHomePage && this.state.movies.length && (
+          <>
+            <Header 
+            movies={this.state.movies}
+            />
             <Movies
               movies={this.state.movies}
               displayMovieDetails={this.displayMovieDetails}

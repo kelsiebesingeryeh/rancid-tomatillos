@@ -26,8 +26,3 @@ const MovieDetailsHeader = ( { currentMovie }) => {
     }
     
     export default MovieDetailsHeader
-  
-    
-    // let randomMovie = (Math.floor(Math.random() * movies.length))
-    // let randomMovieHeader = movies[randomMovie].backdrop_path
-    // <img className='headerImage' src={randomMovieHeader}/>
