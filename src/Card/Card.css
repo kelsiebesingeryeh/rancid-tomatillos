@@ -7,8 +7,13 @@
     height: 100%;
     width: 100%;
     object-fit: contain;
+    transition: transform 500ms;
 }
 
+.moviePosterImage:hover {
+    transform: scale(1.03);
+}
+ 
 .viewRatings {
     display: flex;
     align-self: flex-end;
@@ -22,7 +27,7 @@
 }
 
 .movieTitle {
-    margin: 1%;
+    margin: 2%;
 }
 
 .movieRating {
