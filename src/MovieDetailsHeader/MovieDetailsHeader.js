@@ -4,11 +4,18 @@ import './MovieDetailsHeader.css'
 const MovieDetailsHeader = ( { currentMovie }) => {
     return (
       <header className="movieDetailsHeader">
-        <img
-          className="headerImage"
-          src={currentMovie.backdrop_path}
-          alt={`${currentMovie.title}-poster`}
-        />
+
+            <div className="movieDetailsInfo">
+                <h2>{currentMovie.title}</h2>
+            </div>
+
+            <div className="movieImage">
+                <img
+                    className="headerImage"
+                    src={currentMovie.backdrop_path}
+                    alt={`${currentMovie.title}-poster`}
+                />
+            </div>
       </header>
     );
     }

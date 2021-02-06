@@ -1,5 +1,18 @@
 .movieDetailsHeader {
-    height: fit-content
+    height: fit-content;
+    background: linear-gradient(45deg, black, transparent);
+    display: flex;
+}
+
+.movieDetailsInfo {
+    padding: 1rem;
+    width: 30%;
+    margin: auto;
+}
+
+.movieImage {
+    z-index: -1;
+    width: 100%;
 }
 
 .headerImage {
