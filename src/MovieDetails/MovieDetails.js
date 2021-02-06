@@ -23,7 +23,7 @@ const MovieDetails = ({ currentMovie, backToMain }) => {
               <li>Budget</li>
               <li>Revenue</li>
             </ul>
-            <ul className="movieDetailsList">
+            <ul className="movieDetailsData">
               <li>{date.toLocaleDateString()}</li>
               <li>{currentMovie.runtime}</li>
               <li>{currentMovie.genres}</li>

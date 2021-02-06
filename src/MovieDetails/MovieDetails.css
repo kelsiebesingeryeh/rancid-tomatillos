@@ -31,6 +31,10 @@ h2 {
   padding-left: 0;
 }
 
+.movieDetailsData {
+  list-style-type: none;
+}
+
 .listDetails {
   display: flex;
   font-size: .85rem;
