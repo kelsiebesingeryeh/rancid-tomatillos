@@ -1,5 +1,6 @@
 .movieCard {
     display: flex;
+    flex-direction: column;
 }
 
 .moviePosterImage {
@@ -18,6 +19,10 @@
     color: #1B2B7B;
     margin-left: -19%;
     margin-bottom: 2%;
+}
+
+.movieTitle {
+    margin: 1%;
 }
 
 .movieRating {
