@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
-import movieData from '../Data/movieData';
 import './App.css'
 // import tomatillo from '../assets/tomatillo.png'
 import MovieDetails from '../MovieDetails/MovieDetails'
