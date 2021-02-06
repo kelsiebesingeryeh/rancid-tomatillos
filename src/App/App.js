@@ -9,10 +9,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       currentMovie: {},
-      isHomePage: true
+      isHomePage: true,
+      error: ''
     }
+  }
+
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(movies => this.setState({movies: movies.movies}))
+      .catch(error => console.log(error))
   }
 
   displayMovieDetails = (id) => {
