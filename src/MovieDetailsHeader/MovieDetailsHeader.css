@@ -4,6 +4,19 @@
     display: flex;
 }
 
+.headerText {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.headerTitle {
+    margin: 0;
+}
+
+.year {
+    margin-left: 8%;
+}
+
 .movieDetailsInfo {
     padding: 1rem;
     width: 30%;
