@@ -22,4 +22,17 @@ describe('Rancid Tomatillos', () => {
     .get('div[class="headerText"]').should('exist')
   })
 
+  it('Should see all movies on the homepage', () => {
+    cy.intercept(
+      {
+        method: 'GET',
+        url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      },
+      {
+        statusCode: 200,
+      }
+    )
+    .get('img[class="moviePosterImage"]').should('be.visible')
+    .get('p[class="movieTitle"]').should('be.visible')
+  })
 })
