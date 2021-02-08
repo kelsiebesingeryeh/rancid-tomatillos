@@ -13,7 +13,13 @@ describe('Rancid Tomatillos', () => {
     cy.get('h1').contains('Rancid Tomatillos')
   })
 
-  
+  it('Should see a random movie image displayed in the header', () => {
+    cy.get('img[class="headerImage"]').should('be.visible')
+  })
 
+  it('Should see a movie title and year that match the image in the header', () => {
+    cy.get('h2[class="headerTitle"]').should('exist')
+    .get('div[class="headerText"]').should('exist')
+  })
 
 })
