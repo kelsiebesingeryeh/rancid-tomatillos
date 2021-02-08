@@ -35,4 +35,8 @@ describe('Rancid Tomatillos', () => {
     .get('img[class="moviePosterImage"]').should('be.visible')
     .get('p[class="movieTitle"]').should('be.visible')
   })
+
+  // it('Should be able to click a movie poster to view movie details on a new page', () => {
+  //   cy.get('img[class="moviePosterImage"]').click({multiple: true})
+  // })
 })
