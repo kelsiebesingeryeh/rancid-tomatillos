@@ -55,8 +55,7 @@ class App extends Component {
 
       {this.state.isHomePage && this.state.movies.length && (
         <>
-          <Route exact path='/' render={ ({match}) => {
-            console.log(match)
+          <Route exact path='/' render={ () => {
             return (
                   <>
                     <SideBar backToMain={this.backToMain} />
@@ -72,7 +71,7 @@ class App extends Component {
           />
         </>
       )}
-      
+
         {this.state.currentMovie && !this.state.isHomePage && (
           <>
             <SideBar backToMain={this.backToMain} />
