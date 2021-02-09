@@ -6,6 +6,7 @@ import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
