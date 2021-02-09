@@ -5,7 +5,6 @@ const MovieDetails = ({ currentMovie }) => {
   const date = new Date(currentMovie.release_date)
   return (
     <section className="movieDetails">
-      {/* <button >Back to Main</button> */}
       <div className="movieDetailsCard">
         <img
           className="poster"
@@ -18,17 +17,33 @@ const MovieDetails = ({ currentMovie }) => {
           <div className="listDetails">
             <ul className="movieDetailsList">
               <li>Released</li>
-              <li>Runtime</li>
-              <li>Genre</li>
-              <li>Budget</li>
+              {currentMovie.runtime !== 0 && 
+                <li>Runtime</li>
+              }
+              {currentMovie.genres.length !== 0 && 
+                <li>Genre</li>
+              }
+              {currentMovie.budget !== 0 && 
+                <li>Budget</li>
+              }
+              {currentMovie.revenue !== 0 && 
               <li>Revenue</li>
+              }
             </ul>
             <ul className="movieDetailsData">
               <li>{date.toLocaleDateString()}</li>
-              <li>{currentMovie.runtime}</li>
-              <li>{currentMovie.genres}</li>
-              <li>{currentMovie.budget}</li>
-              <li>{currentMovie.revenue}</li>
+              {currentMovie.runtime !== 0 && 
+                <li>{currentMovie.runtime}</li>
+              }
+              {currentMovie.genres.length !== 0 && 
+                <li>{currentMovie.genres}</li>
+              }
+              {currentMovie.budget !== 0 && 
+                <li>{currentMovie.budget}</li>
+              }
+              {currentMovie.revenue !== 0 && 
+                <li>{currentMovie.revenue}</li>
+              }
             </ul>
           </div>
         </span>
