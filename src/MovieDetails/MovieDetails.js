@@ -4,6 +4,9 @@ import './MovieDetails.css';
 const MovieDetails = ({ currentMovie }) => {
   const date = new Date(currentMovie.release_date)
   const genres = currentMovie.genres.join(', ')
+  const budget = new Intl.NumberFormat().format(currentMovie.budget)
+  const revenue = new Intl.NumberFormat().format(currentMovie.revenue);
+  
   return (
     <section className="movieDetails">
       <div className="movieDetailsCard">
@@ -30,8 +33,8 @@ const MovieDetails = ({ currentMovie }) => {
                 <li>{currentMovie.runtime} minutes</li>
               )}
               {currentMovie.genres.length !== 0 && <li>{genres}</li>}
-              {currentMovie.budget !== 0 && <li>{currentMovie.budget}</li>}
-              {currentMovie.revenue !== 0 && <li>{currentMovie.revenue}</li>}
+              {currentMovie.budget !== 0 && <li>${budget}</li>}
+              {currentMovie.revenue !== 0 && <li>${revenue}</li>}
               <li>{currentMovie.average_rating.toFixed(1)}</li>
             </ul>
           </div>
