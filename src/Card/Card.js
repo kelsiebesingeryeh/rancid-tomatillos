@@ -1,8 +1,8 @@
 import React from 'react';
 import './Card.css'
-import star from '../assets/star.png'
+import PropTypes from 'prop-types'
 
-const Card = ({ title, posterImage, id, avgRating, displayMovieDetails }) => {
+const Card = ({ title, posterImage, id, displayMovieDetails }) => {
   return (
     <div className="movieCard">
       <div>
@@ -22,3 +22,10 @@ const Card = ({ title, posterImage, id, avgRating, displayMovieDetails }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  title: PropTypes.string,
+  posterImage: PropTypes.string,
+  id: PropTypes.number,
+  displayMovieDetails: PropTypes.func
+};
