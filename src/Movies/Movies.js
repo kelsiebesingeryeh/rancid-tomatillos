@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import './Movies.css';
+import PropTypes from 'prop-types'
 
 const Movies = ({movies, displayMovieDetails}) => {
   const moviesToDisplay = movies.map(movie => {
@@ -24,3 +25,8 @@ const Movies = ({movies, displayMovieDetails}) => {
 }
 
 export default Movies;
+
+ Movies.propTypes = {
+   movies: PropTypes.array,
+   displayMovieDetails: PropTypes.func
+ };
