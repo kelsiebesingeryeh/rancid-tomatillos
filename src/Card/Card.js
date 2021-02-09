@@ -1,18 +1,21 @@
 import React from 'react';
 import './Card.css'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Card = ({ title, posterImage, id, displayMovieDetails }) => {
   return (
     <div className="movieCard">
       <div>
-        <img
-          className="moviePosterImage"
-          src={posterImage}
-          alt={`${title} poster`}
-          id={id}
-          onClick={() => displayMovieDetails(id)}
-        />
+        <Link to={`/movie/${title}`}>
+          <img
+            className="moviePosterImage"
+            src={posterImage}
+            alt={`${title} poster`}
+            id={id}
+            onClick={() => displayMovieDetails(id)}
+          />
+        </Link>
       </div>
       <div className="movieTitles">
         <p className="movieTitle">{title}</p>
