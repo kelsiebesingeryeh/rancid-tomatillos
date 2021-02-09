@@ -1,6 +1,7 @@
 import React from 'react'
 import home from '../assets/home.png'
 import './SideBar.css'
+import PropTypes from 'prop-types'
 
 const SideBar = ({backToMain}) => {
     return (
@@ -12,3 +13,8 @@ const SideBar = ({backToMain}) => {
 }
 
 export default SideBar
+
+SideBar.propTypes = {
+  backToMain: PropTypes.func
+};
+

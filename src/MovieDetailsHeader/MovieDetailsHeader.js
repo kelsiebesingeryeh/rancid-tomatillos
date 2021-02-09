@@ -1,5 +1,6 @@
 import React from 'react'
 import './MovieDetailsHeader.css'
+import PropTypes from 'prop-types'
 
 const MovieDetailsHeader = ( { currentMovie }) => {
     let year = currentMovie.release_date.split('-')[0]
@@ -35,3 +36,7 @@ const MovieDetailsHeader = ( { currentMovie }) => {
     }
     
     export default MovieDetailsHeader
+
+    MovieDetailsHeader.propTypes = {
+      currentMovie: PropTypes.object,
+    };

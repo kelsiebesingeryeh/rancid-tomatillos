@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieDetails.css';
+import PropTypes from 'prop-types'
 
 const MovieDetails = ({ currentMovie }) => {
   const date = new Date(currentMovie.release_date)
@@ -51,6 +52,10 @@ const MovieDetails = ({ currentMovie }) => {
 }
 
 export default MovieDetails
+
+MovieDetails.propTypes = {
+  currentMovie: PropTypes.object
+}
 
  {
    /* <span className="viewRatings">

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css'
+import PropTypes from 'prop-types'
 
 const Header = ( {movies}) => {
   let randomMovie = (Math.floor(Math.random() * movies.length))
@@ -23,3 +24,7 @@ const Header = ( {movies}) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  movies: PropTypes.array,
+};
