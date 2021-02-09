@@ -13,10 +13,6 @@ const Card = ({ title, posterImage, id, avgRating, displayMovieDetails }) => {
           id={id}
           onClick={() => displayMovieDetails(id)}
         />
-        {/* <span className="viewRatings">
-          <img className="star" src={star} alt="star" />
-          <p className="movieRating">{avgRating.toFixed(1)}</p>
-        </span> */}
       </div>
       <div className="movieTitles">
         <p className="movieTitle">{title}</p>

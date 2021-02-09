@@ -3,6 +3,7 @@ import './MovieDetails.css';
 
 const MovieDetails = ({ currentMovie }) => {
   const date = new Date(currentMovie.release_date)
+  const genres = currentMovie.genres.join(', ')
   return (
     <section className="movieDetails">
       <div className="movieDetailsCard">
@@ -12,38 +13,26 @@ const MovieDetails = ({ currentMovie }) => {
           alt={`${currentMovie.title}-poster`}
         />
         <span className="movieInfo">
-          <h3 className="movieTitle">Overview</h3>
+          <h3 className="movieDetailsTitle">Overview</h3>
           <p className="movieOverview">{currentMovie.overview}</p>
           <div className="listDetails">
             <ul className="movieDetailsList">
               <li>Released</li>
-              {currentMovie.runtime !== 0 && 
-                <li>Runtime</li>
-              }
-              {currentMovie.genres.length !== 0 && 
-                <li>Genre</li>
-              }
-              {currentMovie.budget !== 0 && 
-                <li>Budget</li>
-              }
-              {currentMovie.revenue !== 0 && 
-              <li>Revenue</li>
-              }
+              {currentMovie.runtime !== 0 && <li>Runtime</li>}
+              {currentMovie.genres.length !== 0 && <li>Genre</li>}
+              {currentMovie.budget !== 0 && <li>Budget</li>}
+              {currentMovie.revenue !== 0 && <li>Revenue</li>}
+              <li>Average Rating</li>
             </ul>
             <ul className="movieDetailsData">
               <li>{date.toLocaleDateString()}</li>
-              {currentMovie.runtime !== 0 && 
-                <li>{currentMovie.runtime}</li>
-              }
-              {currentMovie.genres.length !== 0 && 
-                <li>{currentMovie.genres}</li>
-              }
-              {currentMovie.budget !== 0 && 
-                <li>{currentMovie.budget}</li>
-              }
-              {currentMovie.revenue !== 0 && 
-                <li>{currentMovie.revenue}</li>
-              }
+              {currentMovie.runtime !== 0 && (
+                <li>{currentMovie.runtime} minutes</li>
+              )}
+              {currentMovie.genres.length !== 0 && <li>{genres}</li>}
+              {currentMovie.budget !== 0 && <li>{currentMovie.budget}</li>}
+              {currentMovie.revenue !== 0 && <li>{currentMovie.revenue}</li>}
+              <li>{currentMovie.average_rating.toFixed(1)}</li>
             </ul>
           </div>
         </span>
@@ -59,3 +48,10 @@ const MovieDetails = ({ currentMovie }) => {
 }
 
 export default MovieDetails
+
+ {
+   /* <span className="viewRatings">
+          <img className="star" src={star} alt="star" />
+          <p className="movieRating">{avgRating.toFixed(1)}</p>
+        </span> */
+ }
