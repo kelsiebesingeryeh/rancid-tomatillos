@@ -1,54 +1,79 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './MovieDetails.css';
 import PropTypes from 'prop-types'
+import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 
-const MovieDetails = ({ currentMovie }) => {
-  const date = new Date(currentMovie.release_date)
-  const genres = currentMovie.genres.join(', ')
-  const budget = new Intl.NumberFormat().format(currentMovie.budget)
-  const revenue = new Intl.NumberFormat().format(currentMovie.revenue);
-  
-  return (
-    <section className="movieDetails">
-      <div className="movieDetailsCard">
-        <img
-          className="poster"
-          src={currentMovie.poster_path}
-          alt={`${currentMovie.title}-poster`}
-        />
-        <span className="movieInfo">
-          <h3 className="movieDetailsTitle">Overview</h3>
-          <p className="movieOverview">{currentMovie.overview}</p>
-          <div className="listDetails">
-            <ul className="movieDetailsList">
-              <li>Released</li>
-              {currentMovie.runtime !== 0 && <li>Runtime</li>}
-              {currentMovie.genres.length !== 0 && <li>Genre</li>}
-              {currentMovie.budget !== 0 && <li>Budget</li>}
-              {currentMovie.revenue !== 0 && <li>Revenue</li>}
-              <li>Average Rating</li>
-            </ul>
-            <ul className="movieDetailsData">
-              <li>{date.toLocaleDateString()}</li>
-              {currentMovie.runtime !== 0 && (
-                <li>{currentMovie.runtime} minutes</li>
-              )}
-              {currentMovie.genres.length !== 0 && <li>{genres}</li>}
-              {currentMovie.budget !== 0 && <li>${budget}</li>}
-              {currentMovie.revenue !== 0 && <li>${revenue}</li>}
-              <li>{currentMovie.average_rating.toFixed(1)}</li>
-            </ul>
-          </div>
-        </span>
-      </div>
-      {/* <div className="trailerContainer">
-        <img className="trailer"
-          src={currentMovie.backdrop_path}
-          alt={`${currentMovie.title}-poster`}
-        />
-      </div> */}
-    </section>
-  );
+class MovieDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentMovie: null,
+      id: this.props.id
+    }
+  }
+
+  componentDidMount() {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`)
+      .then(response => response.json())
+      .then(targetedMovie => this.setState({
+          currentMovie: targetedMovie.movie
+        }))
+  }
+
+  returnDate(date) {
+    return new Date(date).toLocaleDateString()
+  }
+
+  returnGenres(genres) {
+    return genres.join(', ')
+  }
+
+  returnMovieCosts(type) {
+    return new Intl.NumberFormat().format(type)
+  }
+
+  render() {
+      return (
+        <section className="movieDetails">
+          {this.state.currentMovie &&
+          <>
+            <MovieDetailsHeader currentMovie={this.state.currentMovie}/>
+            <div className="movieDetailsCard">
+              <img
+                className="poster"
+                src={this.state.currentMovie.poster_path}
+                alt={`${this.state.currentMovie.title}-poster`}
+              />
+              <span className="movieInfo">
+                <h3 className="movieDetailsTitle">Overview</h3>
+                <p className="movieOverview">{this.state.currentMovie.overview}</p>
+                <div className="listDetails">
+                  <ul className="movieDetailsList">
+                    <li>Released</li>
+                    {this.state.currentMovie.runtime !== 0 && <li>Runtime</li>}
+                    {this.state.currentMovie.genres.length !== 0 && <li>Genre</li>}
+                    {this.state.currentMovie.budget !== 0 && <li>Budget</li>}
+                    {this.state.currentMovie.revenue !== 0 && <li>Revenue</li>}
+                    <li>Average Rating</li>
+                  </ul>
+                  <ul className="movieDetailsData">
+                    <li>{this.returnDate(this.state.currentMovie.release_date)}</li>
+                    {this.state.currentMovie.runtime !== 0 && (
+                      <li>{this.state.currentMovie.runtime} minutes</li>
+                    )}
+                    {this.state.currentMovie.genres.length !== 0 && <li>{this.returnGenres(this.state.currentMovie.genres)}</li>}
+                    {this.state.currentMovie.budget !== 0 && <li>${this.returnMovieCosts(this.state.currentMovie.budget)}</li>}
+                    {this.state.currentMovie.revenue !== 0 && <li>${this.returnMovieCosts(this.state.currentMovie.revenue)}</li>}
+                    <li>{this.state.currentMovie.average_rating.toFixed(1)}</li>
+                  </ul>
+                </div>
+              </span>
+            </div>
+          </>
+        }
+      </section>
+    )
+  }
 }
 
 export default MovieDetails
@@ -63,3 +88,10 @@ MovieDetails.propTypes = {
           <p className="movieRating">{avgRating.toFixed(1)}</p>
         </span> */
  }
+
+ {/* <div className="trailerContainer">
+   <img className="trailer"
+     src={this.state.currentMovie.backdrop_path}
+     alt={`${this.state.currentMovie.title}-poster`}
+   />
+ </div> */}

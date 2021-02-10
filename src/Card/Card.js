@@ -7,7 +7,7 @@ const Card = ({ title, posterImage, id, displayMovieDetails }) => {
   return (
     <div className="movieCard">
       <div>
-        <Link to={`/movies/${title}`}>
+        <Link to={`/movies/${id}`}>
           <img
             className="moviePosterImage"
             src={posterImage}

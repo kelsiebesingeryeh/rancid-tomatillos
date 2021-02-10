@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import './App.css'
-// import tomatillo from '../assets/tomatillo.png'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
@@ -14,7 +13,6 @@ class App extends Component {
     this.state = {
       movies: [],
       currentMovie: {},
-      // isHomePage: true,
       error: '',
       loading: true
     }
@@ -32,14 +30,12 @@ class App extends Component {
       .then(response => response.json())
       .then(targetedMovie => this.setState({
           currentMovie: targetedMovie.movie,
-          // isHomePage: false,
           loading: false
         }))
   }
 
   backToMain = () => {
     this.setState({
-      // isHomePage: true,
       currentMovie: {}
     })
   }
@@ -48,9 +44,7 @@ class App extends Component {
     return (
       <main>
         {this.state.loading && (
-          <>
             <h2>Loading...</h2>
-          </>
         )}
 
       {this.state.movies.length && (
@@ -66,23 +60,22 @@ class App extends Component {
                     />
                   </>
                 )
-              }
-            }
-          />
-        </>
-      )}
+              }}
+            />
+          </>
+        )}
 
         {this.state.currentMovie && (
           <>
             <Route
               exact
-              path={`/movies/${this.state.currentMovie.title}`}
-              render={ () => {
+              path={'/movies/:id'}
+              render={ ({match}) => {
+                const id = parseInt(match.params.id)
                 return(
                   <>
                     <SideBar backToMain={this.backToMain} />
-                    <MovieDetailsHeader currentMovie={this.state.currentMovie} />
-                    <MovieDetails currentMovie={this.state.currentMovie} />
+                    <MovieDetails id={id} />
                   </>
                 )
               }}
@@ -99,17 +92,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {this.state.isHomePage && this.state.movies.length && (
-//   <>
-//     <SideBar backToMain={this.backToMain} />
-//     <Header movies={this.state.movies} />
-//     <Movies
-//       movies={this.state.movies}
-//       displayMovieDetails={this.displayMovieDetails}
-//     />
-//   </>
-// )}
-
-// this.state.isHomePage &&
-// !this.state.isHomePage &&
