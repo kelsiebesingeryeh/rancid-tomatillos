@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       movies: [],
       currentMovie: {},
-      isHomePage: true,
+      // isHomePage: true,
       error: '',
       loading: true
     }
@@ -32,14 +32,14 @@ class App extends Component {
       .then(response => response.json())
       .then(targetedMovie => this.setState({
           currentMovie: targetedMovie.movie,
-          isHomePage: false,
+          // isHomePage: false,
           loading: false
         }))
   }
 
   backToMain = () => {
     this.setState({
-      isHomePage: true,
+      // isHomePage: true,
       currentMovie: {}
     })
   }
@@ -53,7 +53,7 @@ class App extends Component {
           </>
         )}
 
-      {this.state.isHomePage && this.state.movies.length && (
+      {this.state.movies.length && (
         <>
           <Route exact path='/' render={ () => {
             return (
@@ -72,11 +72,21 @@ class App extends Component {
         </>
       )}
 
-        {this.state.currentMovie && !this.state.isHomePage && (
+        {this.state.currentMovie && (
           <>
-            <SideBar backToMain={this.backToMain} />
-            <MovieDetailsHeader currentMovie={this.state.currentMovie} />
-            <MovieDetails currentMovie={this.state.currentMovie} />
+            <Route
+              exact
+              path={`/movies/${this.state.currentMovie.title}`}
+              render={ () => {
+                return(
+                  <>
+                    <SideBar backToMain={this.backToMain} />
+                    <MovieDetailsHeader currentMovie={this.state.currentMovie} />
+                    <MovieDetails currentMovie={this.state.currentMovie} />
+                  </>
+                )
+              }}
+            />
           </>
         )}
 
@@ -100,3 +110,6 @@ export default App;
 //     />
 //   </>
 // )}
+
+// this.state.isHomePage &&
+// !this.state.isHomePage &&
