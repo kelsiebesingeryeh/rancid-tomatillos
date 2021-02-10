@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const MovieDetailsHeader = ( { currentMovie }) => {
     let year = currentMovie.release_date.split('-')[0]
-    
+
     return (
       <header className="movieDetailsHeader">
         <div className="movieDetailsInfo">
@@ -23,18 +23,17 @@ const MovieDetailsHeader = ( { currentMovie }) => {
           {currentMovie.backdrop_path.includes('NoPhotoAvailable') ?
             <p></p>
            :
-
           <img
             className="headerImage"
             src={currentMovie.backdrop_path}
             alt={`${currentMovie.title}-poster`}
           />
-    }
+          }
         </div>
       </header>
     );
     }
-    
+
     export default MovieDetailsHeader
 
     MovieDetailsHeader.propTypes = {

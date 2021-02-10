@@ -7,7 +7,7 @@ const Header = ( {movies}) => {
   let randomMovieHeader = movies[randomMovie]
   let randomMoveImg = randomMovieHeader['backdrop_path']
   let year = randomMovieHeader.release_date.split("-")[0];
-  
+
   return (
     <header className="mainHeader">
       <div className="movieDetailsInfo">
@@ -17,7 +17,15 @@ const Header = ( {movies}) => {
         </div>
       </div>
       <div className="randomMovieImage">
-        <img className="headerImage" src={randomMoveImg} />
+      {randomMoveImg.includes('NoPhotoAvailable') ?
+        <p></p>
+       :
+        <img
+          className="headerImage"
+          src={randomMoveImg}
+          alt={`${randomMovieHeader.title}-poster`}
+        />
+      }
       </div>
     </header>
   );
