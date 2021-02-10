@@ -25,15 +25,6 @@ class App extends Component {
       .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
-  displayMovieDetails = (id) => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => response.json())
-      .then(targetedMovie => this.setState({
-          currentMovie: targetedMovie.movie,
-          loading: false
-        }))
-  }
-
   backToMain = () => {
     this.setState({
       currentMovie: {}

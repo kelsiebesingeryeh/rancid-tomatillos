@@ -14,7 +14,18 @@ describe('Rancid Tomatillos', () => {
   })
 
   it('Should see a random movie image displayed in the header', () => {
-    cy.get('img[class="headerImage"]').should('be.visible')
+    cy.fixture('testMovieData.json')
+    .then((movieData) => {
+      cy.intercept(
+        "GET",
+        "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
+          statusCode: 200,
+        }
+      );
+    })
+    
+    
+    .get('img[class="headerImage"]').should("be.visible");
   })
 
   it('Should see a movie title and year that match the image in the header', () => {
