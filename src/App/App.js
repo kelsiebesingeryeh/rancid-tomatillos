@@ -47,7 +47,6 @@ class App extends Component {
                     <Header movies={this.state.movies} />
                     <Movies
                       movies={this.state.movies}
-                      displayMovieDetails={this.displayMovieDetails}
                     />
                   </>
                 )
