@@ -13,7 +13,7 @@ const MovieDetailsHeader = ( { currentMovie }) => {
             {currentMovie.runtime === 0 ?
             <p></p>
             :
-            <p>{currentMovie.runtime} minutes</p>
+            <p className="runtime">{currentMovie.runtime} minutes</p>
             }
             <p className="year">{year}</p>
           </div>

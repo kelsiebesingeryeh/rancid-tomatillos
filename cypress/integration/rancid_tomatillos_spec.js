@@ -1,4 +1,4 @@
-describe("Rancid Tomatillos", () => {
+describe("Rancid Tomatillos Home Page", () => {
   const baseUrl = "http://localhost:3000/";
 
   beforeEach(() => {
@@ -66,3 +66,23 @@ describe("Rancid Tomatillos", () => {
     cy.get(".nav[href*=694919]").click();
   });
 })
+
+describe("Movie Details Page", () => {
+  const baseUrl = "http://localhost:3000/movies/694919";
+
+  beforeEach(() => {
+    cy.visit(baseUrl);
+  });
+  
+  it(`Should display header for a selected movie`, () => {
+  cy.get(".movieDetailsHeader").should('be.visible')
+  })
+
+  it('Should display a title, image, runtime, and release year in the header', () => {
+  cy.get(".headerTitle").should('contain', 'Money Plane')
+  cy.get(".headerImage").should("be.visible");
+  cy.get(".runtime").should("contain", "82 minutes");
+  cy.get(".year").should("contain", "2020");
+  })
+})
+
