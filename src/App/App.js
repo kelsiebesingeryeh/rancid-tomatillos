@@ -21,8 +21,14 @@ class App extends Component {
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
-      .then(movies => this.setState({movies: movies.movies, loading: false}))
-      .catch(error => this.setState({error: 'Something went wrong!'}))
+      .then(movies => {
+        console.log('here')
+        this.setState({movies: movies.movies, loading: false})
+      })
+      .catch(error => {
+        this.setState({error: 'Something went wrong!'})
+        console.log('error', this.state.error)
+      })
   }
 
   backToMain = () => {
@@ -34,11 +40,14 @@ class App extends Component {
   render() {
     return (
       <main>
-        {this.state.loading && (
-            <h2>Loading...</h2>
+        {this.state.error && (
+          <h2 className="errorMessage">{this.state.error}</h2>
         )}
+        {/* {this.state.loading && (
+            <h2>Loading...</h2>
+        )} */}
 
-      {this.state.movies.length && (
+      {this.state.movies.length > 0 && (
         <>
           <Route exact path='/' render={ () => {
             return (
@@ -73,9 +82,6 @@ class App extends Component {
           </>
         )}
 
-        {this.state.error && (
-          <h2 className="errorMessage">{this.state.error}</h2>
-        )}
       </main>
     );
   }

@@ -1,6 +1,6 @@
 
-    {
-        "movieData": [
+ 
+       [
          {
                 "id": 694919,
                 "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
@@ -26,4 +26,3 @@
                 "release_date": "2020-08-20"
             }
     ]
-}
