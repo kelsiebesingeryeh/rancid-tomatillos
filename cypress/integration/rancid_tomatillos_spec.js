@@ -63,9 +63,13 @@ describe("Rancid Tomatillos Home Page", () => {
   });
 
   it("Should be able to click a movie poster", () => {
-    cy.get(".nav[href*=694919]").click();
+    cy.get('.movieCard:first').click()
   });
-})
+
+  it("Should be able to click the home icon and refresh the page", () => {
+    cy.get(".homeIcon").click();
+  });
+});
 
 describe("Movie Details Page", () => {
   const baseUrl = "http://localhost:3000/movies/694919";
@@ -84,5 +88,22 @@ describe("Movie Details Page", () => {
   cy.get(".runtime").should("contain", "82 minutes");
   cy.get(".year").should("contain", "2020");
   })
+
+  it('Should display a movie poster', () => {
+    cy.get(".poster").should('be.visible');
+  })
+
+  it("Should display a movie overview", () => {
+    cy.get(".movieOverview").should("be.visible");
+  });
+
+  it("Should display a movie details including release year, runtime, genre, budget, revenue, average rating", () => {
+    cy.get(".movieDetailsList").should("contain", 'Released').and('contain', 'Runtime').and('contain', 'Genre').and('contain', 'Average Rating');
+  });
+  
+  it('Should be able to click the home icon and display home page', () => {
+    cy.get(".homeIcon").click()
+  })
+
 })
 
