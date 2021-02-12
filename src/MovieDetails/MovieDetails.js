@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import './MovieDetails.css';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
-import { getSingleMovie } from '../Data/API'
+import { getSingleMovie, getMovieTrailers } from '../Data/API'
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentMovie: null,
+      currentMovieTrailer: null,
       id: this.props.id,
       error: "",
     };
@@ -21,7 +22,10 @@ class MovieDetails extends Component {
         currentMovie: targetedMovie.movie,
       })
     )
-      .catch((error) => this.setState({ error: "Something went wrong!" }));
+    .catch((error) => this.setState({ error: "Something went wrong!" }));
+    getMovieTrailers(this.state.id)
+    .then((currentVideos) =>
+      this.setState({currentMovieTrailer: currentVideos.videos}))
   }
 
   // separate function for the movie trailer and call it on line 18
