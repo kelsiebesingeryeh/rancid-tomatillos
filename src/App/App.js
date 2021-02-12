@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
-import './App.css'
+import './App.scss'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'

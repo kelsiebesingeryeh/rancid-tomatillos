@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card/Card';
-import './Movies.css';
+import './Movies.scss';
 import PropTypes from 'prop-types'
 
 const Movies = ({movies}) => {

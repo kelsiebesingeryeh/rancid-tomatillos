@@ -1,0 +1,31 @@
+@import '../styles/base';
+
+.movieDetailsHeader {
+    @extend .headerContainer;
+}
+
+.headerText {
+    @include flexDisplay(flex, flex-start);
+}
+
+.headerTitle {
+    margin: 0;
+}
+
+.year {
+    margin-left: 8%;
+}
+
+.movieDetailsInfo {
+    padding: 1rem;
+    width: 30%;
+    margin: auto;
+}
+
+.movieImage {
+   @extend .headerImage;
+}
+
+.headerImage {
+    @extend .headerImageContainer;
+}

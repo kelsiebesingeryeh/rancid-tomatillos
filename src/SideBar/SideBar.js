@@ -1,6 +1,6 @@
 import React from 'react'
 import home from '../assets/home.png'
-import './SideBar.css'
+import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 

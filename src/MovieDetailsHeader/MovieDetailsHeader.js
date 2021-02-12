@@ -1,5 +1,5 @@
 import React from 'react'
-import './MovieDetailsHeader.css'
+import './MovieDetailsHeader.scss'
 import PropTypes from 'prop-types'
 
 const MovieDetailsHeader = ( { currentMovie }) => {

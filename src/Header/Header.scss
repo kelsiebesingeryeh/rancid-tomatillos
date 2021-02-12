@@ -1,0 +1,17 @@
+@import '../styles/base';
+
+.mainHeader {
+    @extend .headerContainer;
+}
+
+.randomMovieImage {
+  @extend .headerImage;
+}
+
+.headerImage {
+    @extend .headerImageContainer;
+}
+
+.headerText {
+    @include flexDisplay(flex, flex-start);
+}
