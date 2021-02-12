@@ -3,6 +3,7 @@ import './MovieDetails.css';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import { getSingleMovie, getMovieTrailers } from '../Data/API'
+import ReactPlayer from 'react-player'
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -17,21 +18,17 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     getSingleMovie(this.state.id)
-    .then((targetedMovie) =>
-      this.setState({
+    .then((targetedMovie) => this.setState({
         currentMovie: targetedMovie.movie,
       })
     )
     .catch((error) => this.setState({ error: "Something went wrong!" }));
     getMovieTrailers(this.state.id)
-    .then((currentVideos) =>
-      this.setState({currentMovieTrailer: currentVideos.videos}))
+    .then((currentVideos) => this.setState({
+      currentMovieTrailer: currentVideos.videos
+      })
+    )
   }
-
-  // separate function for the movie trailer and call it on line 18
-  // call the fetch on line 16/17
-  // api export const name i want to assign the api then it equals the fetch
-
 
   returnDate(date) {
     return new Date(date).toLocaleDateString()
@@ -43,6 +40,13 @@ class MovieDetails extends Component {
 
   returnMovieCosts(type) {
     return new Intl.NumberFormat().format(type)
+  }
+
+  returnTrailer() {
+    console.log('currentMovieTrailer', this.state.currentMovieTrailer)
+    const trailer = this.state.currentMovieTrailer.find(video => video.type === "Trailer")
+    console.log('trailer', trailer.key)
+    return trailer
   }
 
   render() {
@@ -84,6 +88,12 @@ class MovieDetails extends Component {
                     <li>{this.state.currentMovie.average_rating.toFixed(1)}</li>
                   </ul>
                 </div>
+                {this.state.currentMovieTrailer.length !== 0 &&
+                  <div className="trailerContainer">
+                  <ReactPlayer
+                    url={`https://youtu.be/${this.returnTrailer().key}`}
+                  />
+                </div>}
               </span>
             </div>
           </>
@@ -105,10 +115,3 @@ MovieDetails.propTypes = {
           <p className="movieRating">{avgRating.toFixed(1)}</p>
         </span> */
  }
-
- {/* <div className="trailerContainer">
-   <img className="trailer"
-     src={this.state.currentMovie.backdrop_path}
-     alt={`${this.state.currentMovie.title}-poster`}
-   />
- </div> */}
