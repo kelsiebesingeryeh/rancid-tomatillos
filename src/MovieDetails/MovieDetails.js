@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './MovieDetails.css';
+import './MovieDetails.scss';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import { getSingleMovieDetails } from '../Data/API'
