@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './MovieDetails.css';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
+import { getSingleMovie } from '../Data/API'
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -14,15 +15,12 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`
+    getSingleMovie(this.state.id)
+    .then((targetedMovie) =>
+      this.setState({
+        currentMovie: targetedMovie.movie,
+      })
     )
-      .then((response) => response.json())
-      .then((targetedMovie) =>
-        this.setState({
-          currentMovie: targetedMovie.movie,
-        })
-      )
       .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
 
@@ -30,7 +28,6 @@ class MovieDetails extends Component {
   // call the fetch on line 16/17
   // api export const name i want to assign the api then it equals the fetch
 
-  //export const getAllJobs = (id, token) => {  return fetch(`https://lienflash-be.herokuapp.com/api/v1/users/${id}/jobs`, {  method: "GET",  headers: {    'Content-Type': 'application/json',    Accept: 'application/json',    'Authorization': `Bearer ${token}`  }  })  .then((response) => {    if (!response.ok) {      throw Error(response.statusText);    } else {      return response.json();    }  })}
 
   returnDate(date) {
     return new Date(date).toLocaleDateString()
@@ -50,7 +47,7 @@ class MovieDetails extends Component {
           {this.state.error && (
             <h2 className="errorMessage">{this.state.error}</h2>
           )}
-          
+
           {this.state.currentMovie &&
           <>
             <MovieDetailsHeader currentMovie={this.state.currentMovie}/>
