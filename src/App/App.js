@@ -25,11 +25,11 @@ class App extends Component {
     .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
-  backToMain = () => {
-    this.setState({
-      currentMovie: {}
-    })
-  }
+  // backToMain = () => {
+  //   this.setState({
+  //     currentMovie: {}
+  //   })
+  // }
 
   render() {
     return (

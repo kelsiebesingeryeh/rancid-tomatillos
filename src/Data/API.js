@@ -5,16 +5,14 @@ export const getAllMovies = () => {
   )
 }
 
-export const getSingleMovie = (id) => {
-  return (
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then((response) => response.json())
-  )
-}
-
-export const getMovieTrailers = (id) => {
-  return (
+export const getSingleMovieDetails = (id) => {
+  const singleMovieData = Promise.all([
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
-    .then((response) => response.json())
-  )
+  ]).then(response => {
+      return Promise.all(response.map(response => {
+        return response.json()
+      }))
+  })
+  return singleMovieData
 }

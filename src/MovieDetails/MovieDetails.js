@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './MovieDetails.css';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
-import { getSingleMovie, getMovieTrailers } from '../Data/API'
+import { getSingleMovieDetails } from '../Data/API'
 import ReactPlayer from 'react-player'
 
 class MovieDetails extends Component {
@@ -17,17 +17,14 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    getSingleMovie(this.state.id)
-    .then((targetedMovie) => this.setState({
-        currentMovie: targetedMovie.movie,
+    getSingleMovieDetails(this.state.id)
+    .then(data => {
+      this.setState({
+        currentMovie: data[0].movie,
+        currentMovieTrailer: data[1].videos
       })
-    )
+    })
     .catch((error) => this.setState({ error: "Something went wrong!" }));
-    getMovieTrailers(this.state.id)
-    .then((currentVideos) => this.setState({
-      currentMovieTrailer: currentVideos.videos
-      })
-    )
   }
 
   returnDate(date) {
@@ -43,9 +40,7 @@ class MovieDetails extends Component {
   }
 
   returnTrailer() {
-    console.log('currentMovieTrailer', this.state.currentMovieTrailer)
     const trailer = this.state.currentMovieTrailer.find(video => video.type === "Trailer")
-    console.log('trailer', trailer.key)
     return trailer
   }
 
