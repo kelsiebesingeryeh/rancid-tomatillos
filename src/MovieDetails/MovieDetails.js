@@ -2,35 +2,30 @@ import React, {Component} from 'react';
 import './MovieDetails.css';
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
+import { getSingleMovieDetails } from '../Data/API'
+import ReactPlayer from 'react-player'
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentMovie: null,
+      currentMovieTrailer: null,
       id: this.props.id,
       error: "",
     };
   }
 
   componentDidMount() {
-    fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`
-    )
-      .then((response) => response.json())
-      .then((targetedMovie) =>
-        this.setState({
-          currentMovie: targetedMovie.movie,
-        })
-      )
-      .catch((error) => this.setState({ error: "Something went wrong!" }));
+    getSingleMovieDetails(this.state.id)
+    .then(data => {
+      this.setState({
+        currentMovie: data[0].movie,
+        currentMovieTrailer: data[1].videos
+      })
+    })
+    .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
-
-  // separate function for the movie trailer and call it on line 18
-  // call the fetch on line 16/17
-  // api export const name i want to assign the api then it equals the fetch
-
-  //export const getAllJobs = (id, token) => {  return fetch(`https://lienflash-be.herokuapp.com/api/v1/users/${id}/jobs`, {  method: "GET",  headers: {    'Content-Type': 'application/json',    Accept: 'application/json',    'Authorization': `Bearer ${token}`  }  })  .then((response) => {    if (!response.ok) {      throw Error(response.statusText);    } else {      return response.json();    }  })}
 
   returnDate(date) {
     return new Date(date).toLocaleDateString()
@@ -44,13 +39,18 @@ class MovieDetails extends Component {
     return new Intl.NumberFormat().format(type)
   }
 
+  returnTrailer() {
+    const trailer = this.state.currentMovieTrailer.find(video => video.type === "Trailer")
+    return trailer
+  }
+
   render() {
       return (
         <section className="movieDetails">
           {this.state.error && (
             <h2 className="errorMessage">{this.state.error}</h2>
           )}
-          
+
           {this.state.currentMovie &&
           <>
             <MovieDetailsHeader currentMovie={this.state.currentMovie}/>
@@ -83,6 +83,12 @@ class MovieDetails extends Component {
                     <li>{this.state.currentMovie.average_rating.toFixed(1)}</li>
                   </ul>
                 </div>
+                {this.state.currentMovieTrailer.length !== 0 &&
+                  <div className="trailerContainer">
+                  <ReactPlayer
+                    url={`https://youtu.be/${this.returnTrailer().key}`}
+                  />
+                </div>}
               </span>
             </div>
           </>
@@ -104,10 +110,3 @@ MovieDetails.propTypes = {
           <p className="movieRating">{avgRating.toFixed(1)}</p>
         </span> */
  }
-
- {/* <div className="trailerContainer">
-   <img className="trailer"
-     src={this.state.currentMovie.backdrop_path}
-     alt={`${this.state.currentMovie.title}-poster`}
-   />
- </div> */}
