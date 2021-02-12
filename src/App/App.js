@@ -6,6 +6,7 @@ import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
 import { Route } from 'react-router-dom'
+import { getAllMovies } from '../Data/API'
 
 class App extends Component {
   constructor() {
@@ -19,16 +20,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
-      .then(movies => {
-        console.log('here')
-        this.setState({movies: movies.movies, loading: false})
-      })
-      .catch(error => {
-        this.setState({error: 'Something went wrong!'})
-        console.log('error', this.state.error)
-      })
+    getAllMovies()
+    .then(movies => this.setState({movies: movies.movies, loading: false}))
+    .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
   backToMain = () => {
