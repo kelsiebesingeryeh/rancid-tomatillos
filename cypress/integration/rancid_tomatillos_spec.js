@@ -143,5 +143,10 @@ describe("Movie Details Page", () => {
         .get(".errorMessage")
         .should("contain", "Something went wrong!");
     })
+
+     it("Should be able to view a movie's trailer", () => {
+       cy.visit(baseUrl);
+       cy.get(".trailerContainer").should('be.visible')
+     });
 })
 
