@@ -8,17 +8,29 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       currentMovie: null,
-      id: this.props.id
-    }
+      id: this.props.id,
+      error: "",
+    };
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`)
-      .then(response => response.json())
-      .then(targetedMovie => this.setState({
-          currentMovie: targetedMovie.movie
-        }))
+    fetch(
+      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.state.id}`
+    )
+      .then((response) => response.json())
+      .then((targetedMovie) =>
+        this.setState({
+          currentMovie: targetedMovie.movie,
+        })
+      )
+      .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
+
+  // separate function for the movie trailer and call it on line 18
+  // call the fetch on line 16/17
+  // api export const name i want to assign the api then it equals the fetch
+
+  //export const getAllJobs = (id, token) => {  return fetch(`https://lienflash-be.herokuapp.com/api/v1/users/${id}/jobs`, {  method: "GET",  headers: {    'Content-Type': 'application/json',    Accept: 'application/json',    'Authorization': `Bearer ${token}`  }  })  .then((response) => {    if (!response.ok) {      throw Error(response.statusText);    } else {      return response.json();    }  })}
 
   returnDate(date) {
     return new Date(date).toLocaleDateString()
@@ -35,6 +47,10 @@ class MovieDetails extends Component {
   render() {
       return (
         <section className="movieDetails">
+          {this.state.error && (
+            <h2 className="errorMessage">{this.state.error}</h2>
+          )}
+          
           {this.state.currentMovie &&
           <>
             <MovieDetailsHeader currentMovie={this.state.currentMovie}/>

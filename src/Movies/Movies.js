@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import './Movies.css';
 import PropTypes from 'prop-types'
 
-const Movies = ({movies, displayMovieDetails}) => {
+const Movies = ({movies}) => {
   const moviesToDisplay = movies.map(movie => {
     return (
       <Card
@@ -12,7 +12,6 @@ const Movies = ({movies, displayMovieDetails}) => {
         key={movie.id}
         id={movie.id}
         avgRating={movie["average_rating"]}
-        displayMovieDetails={displayMovieDetails}
       />
     );
   })
