@@ -1,0 +1,4 @@
+@mixin flexDisplay($flex, $alignType) {
+    display: $flex;
+    justify-content: $alignType;
+}
