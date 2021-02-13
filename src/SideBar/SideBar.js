@@ -8,7 +8,7 @@ import Form from '../Form/Form'
 
 const SideBar = ({backToMain}) => {
     return (
-      <aside>
+      <nav>
         <div className="sidebarIcons">
           <NavLink to='/'>
             <img
@@ -25,8 +25,7 @@ const SideBar = ({backToMain}) => {
           />
         </div>
         <Form />
-        <h1>Rancid Tomatillos</h1>
-      </aside>
+      </nav>
     );
 }
 

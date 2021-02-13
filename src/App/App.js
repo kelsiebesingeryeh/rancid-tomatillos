@@ -46,11 +46,15 @@ class App extends Component {
           <Route exact path='/' render={ () => {
             return (
                   <>
-                    <SideBar backToMain={this.backToMain} />
-                    <Header movies={this.state.movies} />
-                    <Movies
-                      movies={this.state.movies}
-                    />
+                    <div className="mainPageContainer">
+                      <SideBar backToMain={this.backToMain} />
+                    <div className="mainDisplayContainer">
+                      <Header movies={this.state.movies} />
+                      <Movies
+                        movies={this.state.movies}
+                      />
+                    </div>
+                    </div>
                   </>
                 )
               }}

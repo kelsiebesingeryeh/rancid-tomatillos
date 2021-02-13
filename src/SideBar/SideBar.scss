@@ -2,11 +2,21 @@
 
 .homeIcon,
 .searchIcon {
-    width: 15%;
-    padding: 1rem;
+  width: 80%;
+  padding: 1rem;
 }
 
-aside {
-    @include flexDisplay(flex, space-between);
-    align-items: center;
+nav {
+  @include flexDisplay(flex, space-between);
+  align-items: center;
+  width: 4rem;
+  border-right: 1px solid #202124;
+  margin: 0;
+}
+
+.sidebarIcons {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: center;
 }
