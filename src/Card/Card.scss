@@ -3,6 +3,7 @@
 .movieCard {
     display: flex;
     flex-direction: column;
+    max-width: 300px;
 }
 
 .moviePosterImage {
@@ -15,7 +16,7 @@
 .moviePosterImage:hover {
     transform: scale(1.03);
 }
- 
+
 .viewRatings {
     display: flex;
     align-self: flex-end;
