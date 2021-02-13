@@ -3,7 +3,7 @@ import home from '../assets/home.png'
 import search from '../assets/search.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import Form from '../Form/Form'
 
 const SideBar = ({displayForm}) => {
@@ -18,11 +18,16 @@ const SideBar = ({displayForm}) => {
               // onClick={backToMain}
             />
           </NavLink>
-          <img
-            className="searchIcon"
-            src={search}
-            alt="magnifying-glass"
-            onClick={displayForm}
+          <Route exact path='/' render={ () => {
+            return (
+              <img
+                className="searchIcon"
+                src={search}
+                alt="magnifying-glass"
+                onClick={displayForm}
+              />
+            )
+          }}
           />
         </div>
       </nav>
