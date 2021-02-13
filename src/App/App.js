@@ -27,16 +27,10 @@ class App extends Component {
     .then(movies => this.setState({movies: movies.movies, loading: false}))
     .catch(error => this.setState({error: 'Something went wrong!'}))
   }
-  //
-  // backToMain = () => {
-  //   this.setState({
-  //     currentMovie: {}
-  //   })
-  // }
 
   displayForm = () => {
     this.setState({
-      showForm: true
+      showForm: !this.state.showForm
     })
   }
 
@@ -46,9 +40,8 @@ class App extends Component {
     })
   }
 
-  hideForm = () => {
+  clearSearchResults = () => {
     this.setState({
-      showForm: false,
       searchResults: []
     })
   }
@@ -69,13 +62,15 @@ class App extends Component {
             return (
                   <>
                     <div className="mainPageContainer">
-                      <SideBar displayForm={this.displayForm}/>
+                      <SideBar
+                        displayForm={this.displayForm}
+                        clearSearchResults={this.clearSearchResults}
+                        />
                     <div className="mainDisplayContainer">
                       <Header
                         movies={this.state.movies}
                         showForm={this.state.showForm}
                         displaySearchResults={this.displaySearchResults}
-                        hideForm={this.hideForm}
                       />
                       <Movies
                         movies={this.state.movies}

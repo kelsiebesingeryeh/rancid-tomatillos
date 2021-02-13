@@ -28,7 +28,6 @@ class Form extends Component {
     this.setState({
       searchInput: ''
     })
-
   }
 
   render() {
@@ -44,7 +43,6 @@ class Form extends Component {
             if (event.key === 'Enter') {
               event.preventDefault()
               this.clearInputs()
-              this.props.hideForm()
               }
           }}
         />
