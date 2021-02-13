@@ -29,7 +29,7 @@ const SideBar = ({displayForm, clearSearchResults}) => {
                 className="searchIcon"
                 src={search}
                 alt="magnifying-glass"
-                onClick={displayForm}
+                onClick={clearState}
               />
             )
           }}
