@@ -5,6 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
+import Form from '../Form/Form'
 import { Route } from 'react-router-dom'
 import { getAllMovies } from '../Data/API'
 
@@ -15,7 +16,8 @@ class App extends Component {
       movies: [],
       currentMovie: {},
       error: '',
-      loading: true
+      loading: true,
+      showForm: false
     }
   }
 
@@ -24,12 +26,18 @@ class App extends Component {
     .then(movies => this.setState({movies: movies.movies, loading: false}))
     .catch(error => this.setState({error: 'Something went wrong!'}))
   }
-
+  //
   // backToMain = () => {
   //   this.setState({
   //     currentMovie: {}
   //   })
   // }
+
+  displayForm = () => {
+    this.setState({
+      showForm: true
+    })
+  }
 
   render() {
     return (
@@ -47,9 +55,9 @@ class App extends Component {
             return (
                   <>
                     <div className="mainPageContainer">
-                      <SideBar backToMain={this.backToMain} />
+                      <SideBar displayForm={this.displayForm}/>
                     <div className="mainDisplayContainer">
-                      <Header movies={this.state.movies} />
+                      <Header movies={this.state.movies} showForm={this.state.showForm}/>
                       <Movies
                         movies={this.state.movies}
                       />
@@ -71,7 +79,7 @@ class App extends Component {
                 const id = parseInt(match.params.id)
                 return(
                   <>
-                    <SideBar backToMain={this.backToMain} />
+                    <SideBar displayForm={this.displayForm}/>
                     <MovieDetails id={id} />
                   </>
                 )

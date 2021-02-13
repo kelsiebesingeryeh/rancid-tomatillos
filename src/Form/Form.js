@@ -4,12 +4,21 @@ import './Form.scss'
 class Form extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      searchInput: ''
+    }
   }
 
   render() {
     return (
-      <h1>Search</h1>
+      <form>
+        <input
+          type="text"
+          name="searchInput"
+          placeholder="Search"
+          value={this.state.searchInput}
+        />
+      </form>
     )
   }
 }

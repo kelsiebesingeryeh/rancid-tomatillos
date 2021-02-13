@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import Form from '../Form/Form'
 
-const SideBar = ({backToMain}) => {
+const SideBar = ({displayForm}) => {
     return (
       <nav>
         <div className="sidebarIcons">
@@ -22,9 +22,9 @@ const SideBar = ({backToMain}) => {
             className="searchIcon"
             src={search}
             alt="magnifying-glass"
+            onClick={displayForm}
           />
         </div>
-        <Form />
       </nav>
     );
 }

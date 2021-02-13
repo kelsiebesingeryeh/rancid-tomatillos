@@ -15,3 +15,7 @@
 .headerText {
     @include flexDisplay(flex, flex-start);
 }
+
+.appTitle {
+  @include flexDisplay(flex, flex-end);
+}

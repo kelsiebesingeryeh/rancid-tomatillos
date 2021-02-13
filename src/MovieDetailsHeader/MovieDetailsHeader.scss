@@ -29,3 +29,7 @@
 .headerImage {
     @extend .headerImageContainer;
 }
+
+.appTitle {
+  @include flexDisplay(flex, flex-end);
+}
