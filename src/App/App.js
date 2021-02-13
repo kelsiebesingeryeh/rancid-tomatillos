@@ -46,6 +46,13 @@ class App extends Component {
     })
   }
 
+  hideForm = () => {
+    this.setState({
+      showForm: false,
+      searchResults: []
+    })
+  }
+
   render() {
     return (
       <main>
@@ -64,7 +71,12 @@ class App extends Component {
                     <div className="mainPageContainer">
                       <SideBar displayForm={this.displayForm}/>
                     <div className="mainDisplayContainer">
-                      <Header movies={this.state.movies} showForm={this.state.showForm} displaySearchResults={this.displaySearchResults}/>
+                      <Header
+                        movies={this.state.movies}
+                        showForm={this.state.showForm}
+                        displaySearchResults={this.displaySearchResults}
+                        hideForm={this.hideForm}
+                      />
                       <Movies
                         movies={this.state.movies}
                         searchResults={this.state.searchResults}
