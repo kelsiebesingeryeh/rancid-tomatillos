@@ -11,7 +11,7 @@ const Header = ( {movies, showForm}) => {
 
   return (
     <header className="mainHeader">
-      {showForm && <Form /> }
+      {showForm && <Form movies={movies} /> }
       <div className="movieDetailsInfo">
         <h2 className="headerTitle">{randomMovieHeader.title}</h2>
         <div className="headerText">
