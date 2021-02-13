@@ -42,7 +42,7 @@ class App extends Component {
 
   displaySearchResults = (movies) => {
     this.setState({
-      searchResults: [movies]
+      searchResults: movies
     })
   }
 
@@ -67,6 +67,7 @@ class App extends Component {
                       <Header movies={this.state.movies} showForm={this.state.showForm} displaySearchResults={this.displaySearchResults}/>
                       <Movies
                         movies={this.state.movies}
+                        searchResults={this.state.searchResults}
                       />
                     </div>
                     </div>

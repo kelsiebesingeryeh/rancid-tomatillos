@@ -19,7 +19,6 @@ class Form extends Component {
   filterMovies = (event) => {
     const moviesToDisplay = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
-        // movie.genre.includes(this.state.searchInput)
     })
     console.log(moviesToDisplay)
     this.props.displaySearchResults(moviesToDisplay)
@@ -37,7 +36,7 @@ class Form extends Component {
         <input
           type="text"
           name="searchInput"
-          placeholder="Search"
+          placeholder="Search by movie title"
           value={this.state.searchInput}
           onChange={this.handleChange}
         />
