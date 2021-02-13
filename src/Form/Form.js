@@ -39,6 +39,12 @@ class Form extends Component {
           placeholder="Search by movie title"
           value={this.state.searchInput}
           onChange={this.handleChange}
+          onKeyPress={event => {
+            if (event.key === 'Enter') {
+              event.preventDefault()
+              this.clearInputs()
+            }
+          }}
         />
       </form>
     )
