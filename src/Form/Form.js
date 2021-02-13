@@ -9,6 +9,12 @@ class Form extends Component {
     }
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
     return (
       <form>
@@ -17,6 +23,7 @@ class Form extends Component {
           name="searchInput"
           placeholder="Search"
           value={this.state.searchInput}
+          onChange={this.handleChange}
         />
       </form>
     )
