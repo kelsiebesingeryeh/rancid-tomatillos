@@ -1,5 +1,6 @@
 import React from 'react'
 import home from '../assets/home.png'
+import search from '../assets/search.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
@@ -8,14 +9,21 @@ import Form from '../Form/Form'
 const SideBar = ({backToMain}) => {
     return (
       <aside>
-        <NavLink to='/'>
+        <div className="sidebarIcons">
+          <NavLink to='/'>
+            <img
+              className="homeIcon"
+              src={home}
+              alt="home-icon"
+              // onClick={backToMain}
+            />
+          </NavLink>
           <img
-            className="homeIcon"
-            src={home}
-            alt="home-icon"
-            onClick={backToMain}
+            className="searchIcon"
+            src={search}
+            alt="magnifying-glass"
           />
-        </NavLink>
+        </div>
         <Form />
         <h1>Rancid Tomatillos</h1>
       </aside>
