@@ -3,6 +3,7 @@ import home from '../assets/home.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import Form from '../Form/Form'
 
 const SideBar = ({backToMain}) => {
     return (
@@ -15,6 +16,7 @@ const SideBar = ({backToMain}) => {
             onClick={backToMain}
           />
         </NavLink>
+        <Form />
         <h1>Rancid Tomatillos</h1>
       </aside>
     );
