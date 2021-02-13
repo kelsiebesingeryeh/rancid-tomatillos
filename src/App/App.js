@@ -17,7 +17,8 @@ class App extends Component {
       currentMovie: {},
       error: '',
       loading: true,
-      showForm: false
+      showForm: false,
+      searchResults: []
     }
   }
 
@@ -39,6 +40,12 @@ class App extends Component {
     })
   }
 
+  displaySearchResults = (movies) => {
+    this.setState({
+      searchResults: [movies]
+    })
+  }
+
   render() {
     return (
       <main>
@@ -57,7 +64,7 @@ class App extends Component {
                     <div className="mainPageContainer">
                       <SideBar displayForm={this.displayForm}/>
                     <div className="mainDisplayContainer">
-                      <Header movies={this.state.movies} showForm={this.state.showForm}/>
+                      <Header movies={this.state.movies} showForm={this.state.showForm} displaySearchResults={this.displaySearchResults}/>
                       <Movies
                         movies={this.state.movies}
                       />

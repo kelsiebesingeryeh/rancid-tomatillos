@@ -13,13 +13,22 @@ class Form extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-    this.filterMovies()
+    this.filterMovies(event)
   }
 
-  filterMovies = () => {
-    const filteredMovie = this.props.movies.filter(movie => movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase()))
-    console.log(filteredMovie)
-    return filteredMovie
+  filterMovies = (event) => {
+    const moviesToDisplay = this.props.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
+        // movie.genre.includes(this.state.searchInput)
+    })
+    console.log(moviesToDisplay)
+    this.props.displaySearchResults(moviesToDisplay)
+  }
+
+  clearInputs = () => {
+    this.setState({
+      searchInput: ''
+    })
   }
 
   render() {
