@@ -7,11 +7,6 @@ import { NavLink, Route } from 'react-router-dom'
 import Form from '../Form/Form'
 
 const SideBar = ({displayForm, clearSearchResults}) => {
-    const clearState = () => {
-      clearSearchResults()
-      displayForm()
-    }
-
     return (
       <nav>
         <div className="sidebarIcons">
@@ -20,7 +15,7 @@ const SideBar = ({displayForm, clearSearchResults}) => {
               className="homeIcon"
               src={home}
               alt="home-icon"
-              onClick={clearState}
+              onClick={clearSearchResults}
             />
           </NavLink>
           <Route exact path='/' render={ () => {
@@ -29,7 +24,7 @@ const SideBar = ({displayForm, clearSearchResults}) => {
                 className="searchIcon"
                 src={search}
                 alt="magnifying-glass"
-                onClick={clearState}
+                onClick={displayForm}
               />
             )
           }}

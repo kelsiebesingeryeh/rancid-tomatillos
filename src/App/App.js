@@ -32,6 +32,11 @@ class App extends Component {
     this.setState({
       showForm: !this.state.showForm
     })
+    if (this.state.searchResults.length) {
+      this.setState({
+        searchResults: []
+      })
+    }
   }
 
   displaySearchResults = (movies) => {
@@ -41,9 +46,9 @@ class App extends Component {
   }
 
   clearSearchResults = () => {
-    this.displayForm()
     this.setState({
-      searchResults: []
+      searchResults: [],
+      showForm: false
     })
   }
 
