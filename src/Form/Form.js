@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import './Form.scss'
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      searchInput: ''
-    }
+      searchInput: "",
+      searchResultHeading: ""
+    };
   }
 
   handleChange = (event) => {
@@ -14,13 +15,13 @@ class Form extends Component {
       [event.target.name]: event.target.value
     })
     this.filterMovies(event)
+    this.updateSearchResultHeading()
   }
 
   filterMovies = (event) => {
     const moviesToDisplay = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
     })
-    console.log(moviesToDisplay)
     this.props.displaySearchResults(moviesToDisplay)
   }
 
@@ -28,6 +29,12 @@ class Form extends Component {
     this.setState({
       searchInput: ''
     })
+  }
+
+  updateSearchResultHeading = () => {
+   this.setState({
+     searchResultHeading: `Results for: ${this.state.searchInput}`
+   })
   }
 
   render() {
@@ -55,6 +62,5 @@ class Form extends Component {
 
 export default Form
 
-// when a user inputs in the search bar we need to run a function to filter that value (value.includes)
-// filter through the movies array in app state
-// pass down movies state as a prop to form
+// when a user types text in a textbox, the h3 should also update with the same text
+// get the state from app, we get the prop of 

@@ -18,7 +18,7 @@ class App extends Component {
       error: '',
       loading: true,
       showForm: false,
-      searchResults: []
+      searchResults: [],
     }
   }
 
@@ -66,26 +66,26 @@ class App extends Component {
         <>
           <Route exact path='/' render={ () => {
             return (
-                  <>
-                    <div className="mainPageContainer">
-                      <SideBar
-                        displayForm={this.displayForm}
-                        clearSearchResults={this.clearSearchResults}
-                        />
-                      <div className="mainDisplayContainer">
-                        <Header
-                          movies={this.state.movies}
-                          showForm={this.state.showForm}
-                          displaySearchResults={this.displaySearchResults}
-                        />
-                        <Movies
-                          movies={this.state.movies}
-                          searchResults={this.state.searchResults}
-                        />
-                      </div>
-                    </div>
-                  </>
-                )
+              <>
+                <div className="mainPageContainer">
+                  <SideBar
+                    displayForm={this.displayForm}
+                    clearSearchResults={this.clearSearchResults}
+                  />
+                  <div className="mainDisplayContainer">
+                    <Header
+                      movies={this.state.movies}
+                      showForm={this.state.showForm}
+                      displaySearchResults={this.displaySearchResults}
+                    />
+                    <Movies
+                      movies={this.state.movies}
+                      searchResults={this.state.searchResults}
+                    />
+                  </div>
+                </div>
+              </>
+            );
               }}
             />
           </>
