@@ -4,7 +4,6 @@ import search from '../assets/search.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink, Route } from 'react-router-dom'
-import Form from '../Form/Form'
 
 const SideBar = ({displayForm, clearSearchResults}) => {
     return (
@@ -35,7 +34,3 @@ const SideBar = ({displayForm, clearSearchResults}) => {
 }
 
 export default SideBar
-
-SideBar.propTypes = {
-  backToMain: PropTypes.func
-};

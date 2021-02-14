@@ -72,17 +72,17 @@ class App extends Component {
                         displayForm={this.displayForm}
                         clearSearchResults={this.clearSearchResults}
                         />
-                    <div className="mainDisplayContainer">
-                      <Header
-                        movies={this.state.movies}
-                        showForm={this.state.showForm}
-                        displaySearchResults={this.displaySearchResults}
-                      />
-                      <Movies
-                        movies={this.state.movies}
-                        searchResults={this.state.searchResults}
-                      />
-                    </div>
+                      <div className="mainDisplayContainer">
+                        <Header
+                          movies={this.state.movies}
+                          showForm={this.state.showForm}
+                          displaySearchResults={this.displaySearchResults}
+                        />
+                        <Movies
+                          movies={this.state.movies}
+                          searchResults={this.state.searchResults}
+                        />
+                      </div>
                     </div>
                   </>
                 )
@@ -99,10 +99,10 @@ class App extends Component {
               render={ ({match}) => {
                 const id = parseInt(match.params.id)
                 return(
-                  <>
+                  <div className="movieDisplayContainer">
                     <SideBar displayForm={this.displayForm}/>
                     <MovieDetails id={id} />
-                  </>
+                  </div>
                 )
               }}
             />

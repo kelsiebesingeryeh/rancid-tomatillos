@@ -2,14 +2,14 @@
 
 .homeIcon,
 .searchIcon {
-  width: 80%;
+  width: 50%;
   padding: 1rem;
 }
 
 nav {
   @include flexDisplay(flex, space-between);
   align-items: center;
-  width: 3.5rem;
+  width: 7rem;
   border-right: 1px solid #202124;
   margin: 0;
 }
@@ -19,4 +19,5 @@ nav {
   flex-direction: column;
   align-self: flex-start;
   justify-content: center;
+  width: 100%;
 }

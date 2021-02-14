@@ -18,9 +18,10 @@
 
 .movieDetailsInfo {
     padding: 1rem;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    margin-top: 60%;
+    justify-content: center;
 }
 
 .movieImage {

@@ -8,6 +8,7 @@ const Header = ( {movies, showForm, displaySearchResults}) => {
   let randomMovieHeader = movies[randomMovie]
   let randomMoveImg = randomMovieHeader['backdrop_path']
   let year = randomMovieHeader.release_date.split("-")[0];
+  
 
   return (
     <header className="mainHeader">
@@ -18,7 +19,7 @@ const Header = ( {movies, showForm, displaySearchResults}) => {
         displaySearchResults={displaySearchResults}
         /> 
       }
-        <div className="movieDetailsInfo">
+        <div className="headerInfo">
           <h2 className="headerTitle">{randomMovieHeader.title}</h2>
           <div className="headerText">
             <p>{year}</p>
