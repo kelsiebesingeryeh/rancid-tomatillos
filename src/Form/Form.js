@@ -32,21 +32,23 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          name="searchInput"
-          placeholder="Search by movie title"
-          value={this.state.searchInput}
-          onChange={this.handleChange}
-          onKeyPress={event => {
-            if (event.key === 'Enter') {
-              event.preventDefault()
-              this.clearInputs()
-              }
-          }}
-        />
-      </form>
+      <div className="formStyling">
+        <form>
+          <input
+            type="text"
+            name="searchInput"
+            placeholder="Search by movie title"
+            value={this.state.searchInput}
+            onChange={this.handleChange}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                event.preventDefault()
+                this.clearInputs()
+                }
+            }}
+          />
+        </form>
+      </div>
     )
   }
 }

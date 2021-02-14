@@ -7,29 +7,29 @@ const MovieDetailsHeader = ( { currentMovie }) => {
 
     return (
       <header className="movieDetailsHeader">
-        <div className="movieDetailsInfo">
-          <h2 className="headerTitle">{currentMovie.title}</h2>
-          <div className="headerText">
-            {currentMovie.runtime === 0 ?
-            <p></p>
-            :
-            <p className="runtime">{currentMovie.runtime} minutes</p>
-            }
-            <p className="year">{year}</p>
+          <div className="movieDetailsInfo">
+            <h2 className="headerTitle">{currentMovie.title}</h2>
+            <div className="headerText">
+              {currentMovie.runtime === 0 ? (
+                <p></p>
+              ) : (
+                <p className="runtime">{currentMovie.runtime} minutes</p>
+              )}
+              <p className="year">{year}</p>
+            </div>
           </div>
-        </div>
 
         <div className="movieImage">
           <h1 className="appTitle">Rancid Tomatillos</h1>
-          {currentMovie.backdrop_path.includes('NoPhotoAvailable') ?
+          {currentMovie.backdrop_path.includes("NoPhotoAvailable") ? (
             <p></p>
-           :
-          <img
-            className="headerImage"
-            src={currentMovie.backdrop_path}
-            alt={`${currentMovie.title}-poster`}
-          />
-          }
+          ) : (
+            <img
+              className="headerImage"
+              src={currentMovie.backdrop_path}
+              alt={`${currentMovie.title}-poster`}
+            />
+          )}
         </div>
       </header>
     );

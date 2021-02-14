@@ -11,15 +11,18 @@ const Header = ( {movies, showForm, displaySearchResults}) => {
 
   return (
     <header className="mainHeader">
+      <div className="headerStyling">
       {showForm &&
         <Form
-          movies={movies}
-          displaySearchResults={displaySearchResults}
-        /> }
-      <div className="movieDetailsInfo">
-        <h2 className="headerTitle">{randomMovieHeader.title}</h2>
-        <div className="headerText">
-          <p>{year}</p>
+        movies={movies}
+        displaySearchResults={displaySearchResults}
+        /> 
+      }
+        <div className="movieDetailsInfo">
+          <h2 className="headerTitle">{randomMovieHeader.title}</h2>
+          <div className="headerText">
+            <p>{year}</p>
+          </div>
         </div>
       </div>
       <div className="randomMovieImage">

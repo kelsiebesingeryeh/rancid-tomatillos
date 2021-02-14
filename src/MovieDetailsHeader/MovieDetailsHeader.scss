@@ -18,8 +18,9 @@
 
 .movieDetailsInfo {
     padding: 1rem;
-    width: 30%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60%;
 }
 
 .movieImage {
