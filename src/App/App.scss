@@ -25,3 +25,10 @@ header {
   width: 100%;
 }
 
+.appTitle {
+  @include flexDisplay(flex, flex-end);
+}
+
+.mainPageContainer {
+  display: flex;
+}

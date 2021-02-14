@@ -1,22 +1,41 @@
 import React from 'react'
 import home from '../assets/home.png'
+import search from '../assets/search.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
+import Form from '../Form/Form'
 
-const SideBar = ({backToMain}) => {
+const SideBar = ({displayForm, clearSearchResults}) => {
+    const clearState = () => {
+      clearSearchResults()
+      displayForm()
+    }
+
     return (
-      <aside>
-        <NavLink to='/'>
-          <img
-            className="homeIcon"
-            src={home}
-            alt="home-icon"
-            onClick={backToMain}
+      <nav>
+        <div className="sidebarIcons">
+          <NavLink to='/'>
+            <img
+              className="homeIcon"
+              src={home}
+              alt="home-icon"
+              onClick={clearState}
+            />
+          </NavLink>
+          <Route exact path='/' render={ () => {
+            return (
+              <img
+                className="searchIcon"
+                src={search}
+                alt="magnifying-glass"
+                onClick={clearState}
+              />
+            )
+          }}
           />
-        </NavLink>
-        <h1>Rancid Tomatillos</h1>
-      </aside>
+        </div>
+      </nav>
     );
 }
 

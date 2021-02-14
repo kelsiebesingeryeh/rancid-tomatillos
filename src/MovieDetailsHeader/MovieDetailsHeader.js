@@ -20,6 +20,7 @@ const MovieDetailsHeader = ( { currentMovie }) => {
         </div>
 
         <div className="movieImage">
+          <h1 className="appTitle">Rancid Tomatillos</h1>
           {currentMovie.backdrop_path.includes('NoPhotoAvailable') ?
             <p></p>
            :
