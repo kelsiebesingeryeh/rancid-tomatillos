@@ -164,9 +164,10 @@ describe("Rancid Tomatillos Home Page", () => {
 describe("Movie Details Page", () => {
   const baseUrl = "http://localhost:3000/movies/694919";
 
-  it(`Should display header for a selected movie`, () => {
+  it.only(`Should display header for a selected movie`, () => {
     cy.visit(baseUrl)
       .get(".movieDetailsHeader").should('be.visible')
+      .get(".headerTitle").should('contain', "Money Plane")
   })
 
   it('Should display a title, image, runtime, and release year in the header', () => {
