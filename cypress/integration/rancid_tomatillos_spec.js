@@ -105,19 +105,21 @@ describe("Rancid Tomatillos Home Page", () => {
       .get(".searchForm").type("Mulan")
   })
 
-  it.only("Should see movies that match the user's search input", () => {
+  it("Should see movies that match the user's search input", () => {
     cy.visit(baseUrl)
       .get(".searchIcon").click()
       .get(".searchForm").type("Mulan")
       .get(".movieCard").get(".movieTitle").should("contain", "Mulan")
   })
 
-  it("Should see a message if no movies match the user's search input", () => {
+  // it("Should see a message if no movies match the user's search input", () => {
+  //
+  // })
 
-  })
-
-  it("Should be able to click the sort icon and display a dropdown menu", () => {
-
+  it.only("Should be able to click the sort icon and display a dropdown menu", () => {
+    cy.visit(baseUrl)
+      .get(".sortIcon").click()
+      .get(".sortDropDown").should("be.visible")
   })
 
   it("Should be able to select an option from the dropdown menu to sort the displayed movies", () => {
