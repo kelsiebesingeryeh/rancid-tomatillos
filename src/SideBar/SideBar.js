@@ -6,7 +6,7 @@ import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink, Route } from 'react-router-dom'
 
-const SideBar = ({displayForm, clearSearchResults}) => {
+const SideBar = ({displayForm, clearSearchResults, sortMovies}) => {
     return (
       <nav>
         <div className="sidebarIcons">
@@ -34,7 +34,7 @@ const SideBar = ({displayForm, clearSearchResults}) => {
             className="sortIcon" 
             src={sort}
             alt="up-and-down-arrows"
-   
+            onClick={sortMovies}
             />;
           }}
           />

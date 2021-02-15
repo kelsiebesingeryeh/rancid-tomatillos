@@ -19,7 +19,8 @@ class App extends Component {
       loading: true,
       showForm: false,
       searchResults: [],
-      searchResultInput: ''
+      searchResultInput: '',
+      showSort: true
     }
   }
 
@@ -61,6 +62,10 @@ class App extends Component {
     })
   }
 
+  sortMovies = () => {
+    console.log('hi')
+  }
+
   render() {
     return (
       <main>
@@ -80,6 +85,7 @@ class App extends Component {
                   <SideBar
                     displayForm={this.displayForm}
                     clearSearchResults={this.clearSearchResults}
+                    sortMovies={this.sortMovies}
                   />
                   <div className="mainDisplayContainer">
                     <Header
@@ -87,6 +93,7 @@ class App extends Component {
                       showForm={this.state.showForm}
                       displaySearchResults={this.displaySearchResults}
                       displaySubHeadingText={this.displaySubHeadingText}
+                      showSort={this.state.showSort}
                     />
                     {!this.state.searchResultInput ? (
                       <h3 className="subHeadingText">All Movies</h3>

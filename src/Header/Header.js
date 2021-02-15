@@ -2,12 +2,14 @@ import React from 'react'
 import './Header.scss'
 import PropTypes from 'prop-types'
 import Form from '../Form/Form'
+import Sort from '../Sort/Sort'
 
 const Header = ({
   movies,
   showForm,
   displaySearchResults,
   displaySubHeadingText,
+  showSort,
 }) => {
   let randomMovie = Math.floor(Math.random() * movies.length);
   let randomMovieHeader = movies[randomMovie];
@@ -24,6 +26,9 @@ const Header = ({
               displaySearchResults={displaySearchResults}
               displaySubHeadingText={displaySubHeadingText}
             />
+          )}
+          {showSort && (
+            <Sort />
           )}
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
