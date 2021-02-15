@@ -103,10 +103,3 @@ export default MovieDetails
 MovieDetails.propTypes = {
   currentMovie: PropTypes.object
 }
-
- {
-   /* <span className="viewRatings">
-          <img className="star" src={star} alt="star" />
-          <p className="movieRating">{avgRating.toFixed(1)}</p>
-        </span> */
- }
