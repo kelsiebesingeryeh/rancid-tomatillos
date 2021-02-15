@@ -9,3 +9,14 @@ input {
     padding: 0.3rem;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 550px) {
+    input {
+        font-size: .70rem;
+        width: 7rem;
+    }
+
+    .formStyling {
+        padding: 0;
+    }
+}

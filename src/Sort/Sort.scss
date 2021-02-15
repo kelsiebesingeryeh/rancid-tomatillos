@@ -10,3 +10,18 @@ select {
     border-radius: 5px;
     margin-left: 0.5rem;
 }
+
+@media screen and (max-width: 550px) {
+    .sortDropDown {
+        padding: 0;
+    }
+    select {
+        font-size: 0.7rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    label {
+        font-size: 0.7rem;
+    }
+}
