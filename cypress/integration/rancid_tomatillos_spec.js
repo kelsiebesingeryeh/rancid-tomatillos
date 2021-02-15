@@ -3,7 +3,7 @@ describe("Rancid Tomatillos Home Page", () => {
 
   it("Should see a home button when user visits the homepage", () => {
     cy.visit(baseUrl)
-      .get("img[class="homeIcon"]").should("be.visible")
+      .get(".homeIcon").should("be.visible")
   })
 
   it("Should have a main title on the homepage", () => {
@@ -26,8 +26,7 @@ describe("Rancid Tomatillos Home Page", () => {
             )
           })
       cy.visit(baseUrl)
-      .get("div[class="randomMovieImage"]")
-      .should("be.visible")
+      .get(".randomMovieImage").should("be.visible")
   })
 
   it("Should see a movie title and year in the header", () => {
@@ -44,10 +43,8 @@ describe("Rancid Tomatillos Home Page", () => {
           }
         );
       })
-      .get("h2[class="headerTitle"]")
-      .should("exist")
-      .get("div[class="headerText"]")
-      .should("exist")
+      .get("h2").get(".headerTitle").should("exist")
+      .get("div").get(".headerText").should("exist")
   })
 
   it("Should see all movies on the homepage", () => {
@@ -64,10 +61,8 @@ describe("Rancid Tomatillos Home Page", () => {
           }
         );
       })
-      .get("img[class="moviePosterImage"]")
-      .should("be.visible")
-      .get("p[class="movieTitle"]")
-      .should("be.visible")
+      .get("img").get(".moviePosterImage").should("be.visible")
+      .get("p").get(".movieTitle").should("be.visible")
   })
 
   it("Should be able to click a movie poster", () => {
