@@ -39,12 +39,12 @@ const Header = ({
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
             <div className="headerText">
-              <p>{year}</p>
+              <p className="headerYear">{year}</p>
             </div>
           </div>
         </div>
-        <div className="randomMovieImage">
           <h1 className="appTitle">Rancid Tomatillos</h1>
+        <div className="randomMovieImage">
           {randomMoveImg.includes("NoPhotoAvailable") ? (
             <div className="noHeaderImage"></div>
           ) : (
