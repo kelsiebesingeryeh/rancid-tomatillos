@@ -4,3 +4,9 @@
     grid-gap: 1rem;
     padding: 1rem;
 }
+
+@media screen and (max-width: 550px) {
+    .movieContainer {
+        justify-items: center;
+    }
+}

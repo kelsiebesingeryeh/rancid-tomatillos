@@ -32,3 +32,11 @@
   flex-direction: column;
   margin-top: 60%;
 }
+
+@media screen and (max-width: 550px) {
+  .headerStyling {
+    justify-content: center;
+    width: 0%;
+  }
+}
+
