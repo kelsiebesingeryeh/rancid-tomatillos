@@ -19,3 +19,16 @@
 .appTitle {
   @include flexDisplay(flex, flex-end);
 }
+
+.headerStyling {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.headerInfo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60%;
+}

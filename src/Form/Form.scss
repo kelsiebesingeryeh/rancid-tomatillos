@@ -1,0 +1,11 @@
+@import '../styles/base';
+
+.formStyling {
+    padding-left: 1rem;
+}
+
+input {
+    font-family: $raleway-font;
+    padding: 0.3rem;
+    border-radius: 5px;
+}

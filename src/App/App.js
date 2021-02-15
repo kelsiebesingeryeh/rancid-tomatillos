@@ -18,7 +18,8 @@ class App extends Component {
       error: '',
       loading: true,
       showForm: false,
-      searchResults: []
+      searchResults: [],
+      searchResultInput: ''
     }
   }
 
@@ -32,6 +33,18 @@ class App extends Component {
     this.setState({
       showForm: !this.state.showForm
     })
+    if (this.state.searchResults.length) {
+      this.setState({
+        searchResults: [],
+        searchResultInput: ''
+      })
+    }
+  }
+
+  displaySubHeadingText = (input) => {
+    this.setState({
+      searchResultInput: input
+    })
   }
 
   displaySearchResults = (movies) => {
@@ -41,9 +54,10 @@ class App extends Component {
   }
 
   clearSearchResults = () => {
-    this.displayForm()
     this.setState({
-      searchResults: []
+      searchResults: [],
+      showForm: false,
+      searchResultInput: ''
     })
   }
 
@@ -61,26 +75,34 @@ class App extends Component {
         <>
           <Route exact path='/' render={ () => {
             return (
-                  <>
-                    <div className="mainPageContainer">
-                      <SideBar
-                        displayForm={this.displayForm}
-                        clearSearchResults={this.clearSearchResults}
-                        />
-                    <div className="mainDisplayContainer">
-                      <Header
-                        movies={this.state.movies}
-                        showForm={this.state.showForm}
-                        displaySearchResults={this.displaySearchResults}
-                      />
-                      <Movies
-                        movies={this.state.movies}
-                        searchResults={this.state.searchResults}
-                      />
-                    </div>
-                    </div>
-                  </>
-                )
+              <>
+                <div className="mainPageContainer">
+                  <SideBar
+                    displayForm={this.displayForm}
+                    clearSearchResults={this.clearSearchResults}
+                  />
+                  <div className="mainDisplayContainer">
+                    <Header
+                      movies={this.state.movies}
+                      showForm={this.state.showForm}
+                      displaySearchResults={this.displaySearchResults}
+                      displaySubHeadingText={this.displaySubHeadingText}
+                    />
+                    {!this.state.searchResultInput ? (
+                      <h3 className="subHeadingText">All Movies</h3>
+                    ) : (
+                      <h3 className="subHeadingText">
+                        Results for: {this.state.searchResultInput}
+                      </h3>
+                    )}
+                    <Movies
+                      movies={this.state.movies}
+                      searchResults={this.state.searchResults}
+                    />
+                  </div>
+                </div>
+              </>
+            );
               }}
             />
           </>
@@ -94,10 +116,10 @@ class App extends Component {
               render={ ({match}) => {
                 const id = parseInt(match.params.id)
                 return(
-                  <>
+                  <div className="movieDisplayContainer">
                     <SideBar displayForm={this.displayForm}/>
                     <MovieDetails id={id} />
-                  </>
+                  </div>
                 )
               }}
             />
