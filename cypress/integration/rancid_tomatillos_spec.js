@@ -93,8 +93,10 @@ describe("Rancid Tomatillos Home Page", () => {
       .should("contain", "Something went wrong!");
   })
 
-  it("Should be able to click the search icon and display a search bar", () => {
-
+  it.only("Should be able to click the search icon and display a search bar", () => {
+    cy.visit(baseUrl)
+      .get(".searchIcon").click()
+      .get(".searchForm").should("be.visible")
   })
 
   it("Should be able to type a movie title into the search bar", () => {
