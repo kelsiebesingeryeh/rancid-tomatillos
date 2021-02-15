@@ -20,7 +20,7 @@ class App extends Component {
       showForm: false,
       searchResults: [],
       searchResultInput: '',
-      showSort: true
+      showSort: false
     }
   }
 
@@ -30,9 +30,9 @@ class App extends Component {
     .catch(error => this.setState({error: 'Something went wrong!'}))
   }
 
-  displayForm = () => {
+  displayForm = (key, value) => {
     this.setState({
-      showForm: !this.state.showForm
+      [key]: !this.state[value]
     })
     if (this.state.searchResults.length) {
       this.setState({
@@ -58,7 +58,8 @@ class App extends Component {
     this.setState({
       searchResults: [],
       showForm: false,
-      searchResultInput: ''
+      searchResultInput: '',
+      showSort: false
     })
   }
 
@@ -85,7 +86,8 @@ class App extends Component {
                   <SideBar
                     displayForm={this.displayForm}
                     clearSearchResults={this.clearSearchResults}
-                    sortMovies={this.sortMovies}
+                    showForm={this.state.showForm}
+                    showSort={this.state.showSort}
                   />
                   <div className="mainDisplayContainer">
                     <Header
