@@ -3,14 +3,16 @@
 .homeIcon,
 .searchIcon,
 .sortIcon {
-  width: 50%;
-  padding: 1rem;
+  max-width: 50%;
+  min-width: 50%;
+  padding: 0.5rem;
 }
 
 nav {
   @include flexDisplay(flex, space-between);
   align-items: center;
-  width: 7rem;
+  max-width: 3rem;
+  min-width: 3rem;
   border-right: 1px solid #202124;
   margin: 0;
 }

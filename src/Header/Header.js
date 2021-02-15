@@ -46,7 +46,7 @@ const Header = ({
         <div className="randomMovieImage">
           <h1 className="appTitle">Rancid Tomatillos</h1>
           {randomMoveImg.includes("NoPhotoAvailable") ? (
-            <p className="noHeaderImage"></p>
+            <div className="noHeaderImage"></div>
           ) : (
             <img
               className="headerImage"
