@@ -6,7 +6,6 @@ class Form extends Component {
     super(props)
     this.state = {
       searchInput: "",
-      searchResultHeading: ""
     };
   }
 
@@ -15,7 +14,7 @@ class Form extends Component {
       [event.target.name]: event.target.value
     })
     this.filterMovies(event)
-    this.updateSearchResultHeading()
+    this.props.displaySubHeadingText(event.target.value);
   }
 
   filterMovies = (event) => {
@@ -27,14 +26,8 @@ class Form extends Component {
 
   clearInputs = () => {
     this.setState({
-      searchInput: ''
+      searchInput: '',
     })
-  }
-
-  updateSearchResultHeading = () => {
-   this.setState({
-     searchResultHeading: `Results for: ${this.state.searchInput}`
-   })
   }
 
   render() {

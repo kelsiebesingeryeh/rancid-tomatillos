@@ -2,12 +2,12 @@ import React from 'react'
 import './Header.scss'
 import PropTypes from 'prop-types'
 import Form from '../Form/Form'
-import SubHeadingText from "../SubHeadingText/SubHeadingText";
 
 const Header = ({
   movies,
   showForm,
   displaySearchResults,
+  displaySubHeadingText,
 }) => {
   let randomMovie = Math.floor(Math.random() * movies.length);
   let randomMovieHeader = movies[randomMovie];
@@ -19,7 +19,11 @@ const Header = ({
       <header className="mainHeader">
         <div className="headerStyling">
           {showForm && (
-            <Form movies={movies} displaySearchResults={displaySearchResults} />
+            <Form
+              movies={movies}
+              displaySearchResults={displaySearchResults}
+              displaySubHeadingText={displaySubHeadingText}
+            />
           )}
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
@@ -41,9 +45,6 @@ const Header = ({
           )}
         </div>
       </header>
-      <SubHeadingText 
-      Form={<Form />} 
-      />
     </>
   );
 };

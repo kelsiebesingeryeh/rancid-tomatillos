@@ -19,6 +19,7 @@ class App extends Component {
       loading: true,
       showForm: false,
       searchResults: [],
+      searchResultInput: ''
     }
   }
 
@@ -34,9 +35,16 @@ class App extends Component {
     })
     if (this.state.searchResults.length) {
       this.setState({
-        searchResults: []
+        searchResults: [],
+        searchResultInput: ''
       })
     }
+  }
+
+  displaySubHeadingText = (input) => {
+    this.setState({
+      searchResultInput: input
+    })
   }
 
   displaySearchResults = (movies) => {
@@ -48,7 +56,8 @@ class App extends Component {
   clearSearchResults = () => {
     this.setState({
       searchResults: [],
-      showForm: false
+      showForm: false,
+      searchResultInput: ''
     })
   }
 
@@ -77,7 +86,13 @@ class App extends Component {
                       movies={this.state.movies}
                       showForm={this.state.showForm}
                       displaySearchResults={this.displaySearchResults}
+                      displaySubHeadingText={this.displaySubHeadingText}
                     />
+                    {!this.state.searchResultInput ? 
+                    <h3>All Movies</h3>
+                    :
+                    <h3>Results for: {this.state.searchResultInput}</h3>
+                    }
                     <Movies
                       movies={this.state.movies}
                       searchResults={this.state.searchResults}
