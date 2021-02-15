@@ -99,14 +99,17 @@ describe("Rancid Tomatillos Home Page", () => {
       .get(".searchForm").should("be.visible")
   })
 
-  it.only("Should be able to type a movie title into the search bar", () => {
+  it("Should be able to type a movie title into the search bar", () => {
     cy.visit(baseUrl)
       .get(".searchIcon").click()
       .get(".searchForm").type("Mulan")
   })
 
-  it("Should see movies that match the user's search input", () => {
-
+  it.only("Should see movies that match the user's search input", () => {
+    cy.visit(baseUrl)
+      .get(".searchIcon").click()
+      .get(".searchForm").type("Mulan")
+      .get(".movieCard").get(".movieTitle").should("contain", "Mulan")
   })
 
   it("Should see a message if no movies match the user's search input", () => {
