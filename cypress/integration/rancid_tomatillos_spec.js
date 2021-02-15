@@ -135,11 +135,18 @@ describe("Rancid Tomatillos Home Page", () => {
       .get(".movieRating:first").should("contain", "7")
   })
 
-  it.only('Should be able to sort movies by rating, low to high', () => {
+  it('Should be able to sort movies by rating, low to high', () => {
     cy.visit(baseUrl)
       .get(".sortIcon").click()
       .get(".sortDropDown").get("select").select("Rating Low to High")
       .get(".movieRating:first").should("contain", "3")
+  })
+
+  it.only('Should be able to sort movies alphabetically by title', () => {
+    cy.visit(baseUrl)
+      .get(".sortIcon").click()
+      .get(".sortDropDown").get("select").select("Movie Title A to Z")
+      .get(".movieTitle:first").should("contain", "2067")
   })
 })
 
