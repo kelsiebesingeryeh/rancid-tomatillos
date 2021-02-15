@@ -27,9 +27,10 @@ const Header = ({
               displaySubHeadingText={displaySubHeadingText}
             />
           )}
-          {showSort && (
-            <Sort />
-          )}
+          {showSort && 
+          <Sort 
+          movies={movies} 
+          />}
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
             <div className="headerText">
