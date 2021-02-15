@@ -17,18 +17,6 @@
     transform: scale(1.03);
 }
 
-.viewRatings {
-    display: flex;
-    align-self: flex-end;
-    background-color: $yellow;
-    width: 15%;
-    padding: 0.25rem;
-    border-radius: 5px;
-    color: $black;
-    margin-left: -19%;
-    margin-bottom: 2%;
-}
-
 .movieTitle {
     margin: 2%;
 }
@@ -41,4 +29,21 @@
     width: 30%;
     object-fit: contain;
     margin: auto;
+}
+
+.viewRatings {
+    display: flex;
+    align-self: flex-end;
+    background-color: $yellow;
+    width: 15%;
+    padding: 0.10rem;
+    border-radius: 5px;
+    color: $black;
+    margin-left: -19%;
+    margin-bottom: 2%;
+}
+
+.movieTitles {
+    display: flex;
+    justify-content: space-between;
 }

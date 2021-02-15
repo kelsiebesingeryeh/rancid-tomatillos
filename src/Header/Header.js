@@ -2,12 +2,16 @@ import React from 'react'
 import './Header.scss'
 import PropTypes from 'prop-types'
 import Form from '../Form/Form'
+import Sort from '../Sort/Sort'
 
 const Header = ({
   movies,
   showForm,
   displaySearchResults,
   displaySubHeadingText,
+  showSort,
+  displaySortedMovies,
+  sortedMovies,
 }) => {
   let randomMovie = Math.floor(Math.random() * movies.length);
   let randomMovieHeader = movies[randomMovie];
@@ -25,6 +29,13 @@ const Header = ({
               displaySubHeadingText={displaySubHeadingText}
             />
           )}
+          {showSort && (
+            <Sort
+              movies={movies}
+              sortedMovies={sortedMovies}
+              displaySortedMovies={displaySortedMovies}
+            />
+          )}
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
             <div className="headerText">
@@ -35,7 +46,7 @@ const Header = ({
         <div className="randomMovieImage">
           <h1 className="appTitle">Rancid Tomatillos</h1>
           {randomMoveImg.includes("NoPhotoAvailable") ? (
-            <p className="noHeaderImage"></p>
+            <div className="noHeaderImage"></div>
           ) : (
             <img
               className="headerImage"

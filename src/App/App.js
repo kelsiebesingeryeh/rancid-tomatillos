@@ -15,51 +15,79 @@ class App extends Component {
     this.state = {
       movies: [],
       currentMovie: {},
-      error: '',
+      error: "",
       loading: true,
       showForm: false,
       searchResults: [],
-      searchResultInput: ''
-    }
+      searchResultInput: "",
+      showSort: false,
+      sortedMovies: [],
+    };
   }
 
   componentDidMount() {
     getAllMovies()
-    .then(movies => this.setState({movies: movies.movies, loading: false}))
-    .catch(error => this.setState({error: 'Something went wrong!'}))
+      .then((movies) =>
+        this.setState({ movies: movies.movies, loading: false })
+      )
+      .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
 
-  displayForm = () => {
-    this.setState({
-      showForm: !this.state.showForm
-    })
+  resetNavbarLinks = (key, value, event) => {
     if (this.state.searchResults.length) {
       this.setState({
         searchResults: [],
-        searchResultInput: ''
-      })
+        searchResultInput: "",
+      });
+    } else if (key === "showForm") {
+      this.setState({
+        [key]: !this.state[value],
+        showSort: false,
+        sortedMovies: []
+      });
+    } else if (key === "showSort") {
+      this.setState({
+        [key]: !this.state[value],
+        showForm: false,
+        searchResults: []
+      });
     }
-  }
+  };
 
   displaySubHeadingText = (input) => {
     this.setState({
-      searchResultInput: input
-    })
-  }
+      searchResultInput: input,
+    });
+  };
 
   displaySearchResults = (movies) => {
     this.setState({
-      searchResults: movies
-    })
-  }
+      searchResults: movies,
+    });
+  };
 
   clearSearchResults = () => {
     this.setState({
       searchResults: [],
       showForm: false,
-      searchResultInput: ''
-    })
-  }
+      searchResultInput: "",
+      showSort: false,
+      sortedMovies: [],
+    });
+  };
+
+  displaySortedMovies = (originalList, sortedList) => {
+    this.setState({
+      movies: originalList,
+      sortedMovies: sortedList,
+    });
+  };
+
+  clearDropDownSelections = () => {
+    this.setState({
+      sortedMovies: [],
+    });
+  };
 
   render() {
     return (
@@ -71,38 +99,47 @@ class App extends Component {
             <h2>Loading...</h2>
         )} */}
 
-      {this.state.movies.length > 0 && (
-        <>
-          <Route exact path='/' render={ () => {
-            return (
-              <>
-                <div className="mainPageContainer">
-                  <SideBar
-                    displayForm={this.displayForm}
-                    clearSearchResults={this.clearSearchResults}
-                  />
-                  <div className="mainDisplayContainer">
-                    <Header
-                      movies={this.state.movies}
-                      showForm={this.state.showForm}
-                      displaySearchResults={this.displaySearchResults}
-                      displaySubHeadingText={this.displaySubHeadingText}
-                    />
-                    {!this.state.searchResultInput ? (
-                      <h3 className="subHeadingText">All Movies</h3>
-                    ) : (
-                      <h3 className="subHeadingText">
-                        Results for: {this.state.searchResultInput}
-                      </h3>
-                    )}
-                    <Movies
-                      movies={this.state.movies}
-                      searchResults={this.state.searchResults}
-                    />
-                  </div>
-                </div>
-              </>
-            );
+        {this.state.movies.length > 0 && (
+          <>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <>
+                    <div className="mainPageContainer">
+                      <SideBar
+                        resetNavbarLinks={this.resetNavbarLinks}
+                        clearSearchResults={this.clearSearchResults}
+                        showForm={this.state.showForm}
+                        showSort={this.state.showSort}
+                      />
+                      <div className="mainDisplayContainer">
+                        <Header
+                          movies={this.state.movies}
+                          showForm={this.state.showForm}
+                          displaySearchResults={this.displaySearchResults}
+                          displaySubHeadingText={this.displaySubHeadingText}
+                          showSort={this.state.showSort}
+                          displaySortedMovies={this.displaySortedMovies}
+                          sortedMovies={this.state.sortedMovies}
+                        />
+                        {!this.state.searchResultInput ? (
+                          <h3 className="subHeadingText">All Movies</h3>
+                        ) : (
+                          <h3 className="subHeadingText">
+                            Results for: {this.state.searchResultInput}
+                          </h3>
+                        )}
+                        <Movies
+                          movies={this.state.movies}
+                          searchResults={this.state.searchResults}
+                          sortedMovies={this.state.sortedMovies}
+                        />
+                      </div>
+                    </div>
+                  </>
+                );
               }}
             />
           </>
@@ -112,20 +149,19 @@ class App extends Component {
           <>
             <Route
               exact
-              path={'/movies/:id'}
-              render={ ({match}) => {
-                const id = parseInt(match.params.id)
-                return(
+              path={"/movies/:id"}
+              render={({ match }) => {
+                const id = parseInt(match.params.id);
+                return (
                   <div className="movieDisplayContainer">
-                    <SideBar displayForm={this.displayForm}/>
+                    <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
-                )
+                );
               }}
             />
           </>
         )}
-
       </main>
     );
   }

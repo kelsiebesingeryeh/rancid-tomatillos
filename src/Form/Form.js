@@ -54,6 +54,3 @@ class Form extends Component {
 }
 
 export default Form
-
-// when a user types text in a textbox, the h3 should also update with the same text
-// get the state from app, we get the prop of 
