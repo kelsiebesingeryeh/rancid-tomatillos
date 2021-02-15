@@ -116,15 +116,18 @@ describe("Rancid Tomatillos Home Page", () => {
   //
   // })
 
-  it.only("Should be able to click the sort icon and display a dropdown menu", () => {
+  it("Should be able to click the sort icon and display a dropdown menu", () => {
     cy.visit(baseUrl)
       .get(".sortIcon").click()
       .get(".sortDropDown").should("be.visible")
   })
 
-  it("Should be able to select an option from the dropdown menu to sort the displayed movies", () => {
-
+  it.only("Should be able to select an option from the dropdown menu", () => {
+    cy.visit(baseUrl)
+      .get(".sortIcon").click()
+      .get(".sortDropDown").get("select")
   })
+
 
 })
 
