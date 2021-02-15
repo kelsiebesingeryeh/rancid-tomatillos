@@ -60,3 +60,10 @@ button {
 .movieDisplayContainer {
   display: flex;
 }
+
+@media screen and (max-width: 550px) {
+  .poster {
+    object-fit: contain;
+    width: 40%
+  }
+}

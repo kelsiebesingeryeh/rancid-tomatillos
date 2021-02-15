@@ -35,3 +35,10 @@
 .appTitle {
   @include flexDisplay(flex, flex-end);
 }
+
+@media screen and (max-width: 550px) {
+    .movieDetailsInfo {
+        display: none;
+    }
+    
+}
