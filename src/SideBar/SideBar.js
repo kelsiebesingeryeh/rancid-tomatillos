@@ -1,6 +1,7 @@
 import React from 'react'
 import home from '../assets/home.png'
 import search from '../assets/search.png'
+import sort from '../assets/sort.png'
 import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink, Route } from 'react-router-dom'
@@ -26,6 +27,15 @@ const SideBar = ({displayForm, clearSearchResults}) => {
                 onClick={displayForm}
               />
             )
+          }}
+          />
+          <Route exact path='/' render={ () => {
+            return <img 
+            className="sortIcon" 
+            src={sort}
+            alt="up-and-down-arrows"
+   
+            />;
           }}
           />
         </div>
