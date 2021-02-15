@@ -11,20 +11,12 @@ class Sort extends Component {
     };
   }
 
-  clearMovies = () => {
-      this.props.resetHomePage(this.state.movies)
-  }
-
-
   handleChange = (event) => {
     this.setState({
         selected: event.target.value
     })
       if (event.target.value === 'allMovies') {
           this.props.displaySortedMovies(this.state.movies, this.state.movies);
-        //   this.setState({
-        //       sortedMovies: this.state.movies
-        //   })
     } else if (event.target.value === "high") {
         this.props.displaySortedMovies(this.state.movies,
           this.sortMoviesHighToLow("average_rating"))
@@ -58,11 +50,6 @@ class Sort extends Component {
       })
   }
 
-  handleClear = (event) => {
-      this.setState({
-          selected: ''
-      })
-  }
 
   render() {
     return (

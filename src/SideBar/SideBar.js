@@ -6,7 +6,7 @@ import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink, Route } from 'react-router-dom'
 
-const SideBar = ({displayForm, clearSearchResults, showSort, showForm}) => {
+const SideBar = ({resetNavbarLinks, clearSearchResults, showSort, showForm}) => {
     return (
       <nav>
         <div className="sidebarIcons">
@@ -24,17 +24,19 @@ const SideBar = ({displayForm, clearSearchResults, showSort, showForm}) => {
                 className="searchIcon"
                 src={search}
                 alt="magnifying-glass"
-                onClick={() => displayForm("showForm", "showForm")}
+                value="search"
+                onClick={() => resetNavbarLinks("showForm", "showForm")}
               />
             );
           }}
           />
           <Route exact path='/' render={ () => {
-            return <img 
-            className="sortIcon" 
+            return <img
+            className="sortIcon"
             src={sort}
             alt="up-and-down-arrows"
-            onClick={() => displayForm('showSort', "showSort")}
+            value="sort"
+            onClick={() => resetNavbarLinks('showSort', "showSort")}
             />;
           }}
           />

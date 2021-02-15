@@ -12,7 +12,6 @@ const Header = ({
   showSort,
   displaySortedMovies,
   sortedMovies,
-  clearSearchResults,
 }) => {
   let randomMovie = Math.floor(Math.random() * movies.length);
   let randomMovieHeader = movies[randomMovie];
@@ -35,7 +34,6 @@ const Header = ({
               movies={movies}
               sortedMovies={sortedMovies}
               displaySortedMovies={displaySortedMovies}
-              clearSearchResults={clearSearchResults}
             />
           )}
           <div className="headerInfo">

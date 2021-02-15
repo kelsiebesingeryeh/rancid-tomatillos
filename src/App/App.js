@@ -33,14 +33,23 @@ class App extends Component {
       .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
 
-  displayForm = (key, value) => {
-    this.setState({
-      [key]: !this.state[value],
-    });
+  resetNavbarLinks = (key, value, event) => {
     if (this.state.searchResults.length) {
       this.setState({
         searchResults: [],
         searchResultInput: "",
+      });
+    } else if (key === "showForm") {
+      this.setState({
+        [key]: !this.state[value],
+        showSort: false,
+        sortedMovies: []
+      });
+    } else if (key === "showSort") {
+      this.setState({
+        [key]: !this.state[value],
+        showForm: false,
+        searchResults: []
       });
     }
   };
@@ -64,7 +73,6 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-      // movies: this.state.movies
     });
   };
 
@@ -101,7 +109,7 @@ class App extends Component {
                   <>
                     <div className="mainPageContainer">
                       <SideBar
-                        displayForm={this.displayForm}
+                        resetNavbarLinks={this.resetNavbarLinks}
                         clearSearchResults={this.clearSearchResults}
                         showForm={this.state.showForm}
                         showSort={this.state.showSort}
@@ -115,7 +123,6 @@ class App extends Component {
                           showSort={this.state.showSort}
                           displaySortedMovies={this.displaySortedMovies}
                           sortedMovies={this.state.sortedMovies}
-                          clearSearchResults={this.clearSearchResults}
                         />
                         {!this.state.searchResultInput ? (
                           <h3 className="subHeadingText">All Movies</h3>
@@ -147,7 +154,7 @@ class App extends Component {
                 const id = parseInt(match.params.id);
                 return (
                   <div className="movieDisplayContainer">
-                    <SideBar displayForm={this.displayForm} />
+                    <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
                 );
