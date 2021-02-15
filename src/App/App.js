@@ -88,11 +88,13 @@ class App extends Component {
                       displaySearchResults={this.displaySearchResults}
                       displaySubHeadingText={this.displaySubHeadingText}
                     />
-                    {!this.state.searchResultInput ? 
-                    <h3>All Movies</h3>
-                    :
-                    <h3>Results for: {this.state.searchResultInput}</h3>
-                    }
+                    {!this.state.searchResultInput ? (
+                      <h3 className="subHeadingText">All Movies</h3>
+                    ) : (
+                      <h3 className="subHeadingText">
+                        Results for: {this.state.searchResultInput}
+                      </h3>
+                    )}
                     <Movies
                       movies={this.state.movies}
                       searchResults={this.state.searchResults}
