@@ -3,34 +3,32 @@ import Card from '../Card/Card';
 import './Movies.scss';
 import PropTypes from 'prop-types'
 
-const Movies = ({movies, searchResults}) => {
-  const moviesToDisplay = movies.map(movie => {
-    return (
-      <Card
-        title={movie.title}
-        posterImage={movie["poster_path"]}
-        key={movie.id}
-        id={movie.id}
-        avgRating={movie["average_rating"]}
-      />
-    );
-  })
+const Movies = ({movies, sortedMovies, searchResults}) => {
 
-  const searchResultsToDisplay = searchResults.map(movie => {
-    return (
-      <Card
-        title={movie.title}
-        posterImage={movie["poster_path"]}
-        key={movie.id}
-        id={movie.id}
-        avgRating={movie["average_rating"]}
-      />
-    );
-  })
+  const determineMoviesToDisplay = (movieList) => {
+    return movieList.map(movie => {
+      return (
+        <Card
+          title={movie.title}
+          posterImage={movie["poster_path"]}
+          key={movie.id}
+          id={movie.id}
+          avgRating={movie["average_rating"]}
+        />
+      )
+    })
+  }
+
+
 
   return (
     <section className="movieContainer">
-        {searchResults.length === 0 ? moviesToDisplay : searchResultsToDisplay}
+        {sortedMovies.length > 0 &&
+          determineMoviesToDisplay(sortedMovies) ||
+          searchResults.length > 0 &&
+          determineMoviesToDisplay(searchResults) ||
+          determineMoviesToDisplay(movies)
+        }}
     </section>
   )
 }

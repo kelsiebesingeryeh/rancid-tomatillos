@@ -63,7 +63,7 @@ class App extends Component {
       showForm: false,
       searchResultInput: "",
       showSort: false,
-      // sortedMovies: [],
+      sortedMovies: [],
       // movies: this.state.movies
     });
   };
@@ -127,6 +127,7 @@ class App extends Component {
                         <Movies
                           movies={this.state.movies}
                           searchResults={this.state.searchResults}
+                          sortedMovies={this.state.sortedMovies}
                         />
                       </div>
                     </div>
