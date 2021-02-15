@@ -128,6 +128,13 @@ describe("Rancid Tomatillos Home Page", () => {
       .get(".sortDropDown").get("select")
   })
 
+  it.only('Should default the sort display to all movies', () => {
+    cy.visit(baseUrl)
+      .get(".sortIcon").click()
+      .get(".sortDropDown").get("select").select("View All Movies")
+      .get(".movieTitle:first").should("contain", "Money Plane")
+  })
+
   it('Should be able to sort movies by rating, high to low', () => {
     cy.visit(baseUrl)
       .get(".sortIcon").click()
@@ -149,12 +156,13 @@ describe("Rancid Tomatillos Home Page", () => {
       .get(".movieTitle:first").should("contain", "2067")
   })
 
-  it.only('Should be able to sort movie titles in reverse alphabetical order', () => {
+  it('Should be able to sort movie titles in reverse alphabetical order', () => {
     cy.visit(baseUrl)
       .get(".sortIcon").click()
       .get(".sortDropDown").get("select").select("Movie Title Z to A")
       .get(".movieTitle:first").should("contain", "Trolls World Tour")
   })
+
 })
 
 describe("Movie Details Page", () => {
