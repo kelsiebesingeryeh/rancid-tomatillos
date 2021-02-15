@@ -5,24 +5,45 @@ class Sort extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: this.props.movies,
+      movies: [...this.props.movies],
+      sortedMovies: this.props.movies,
+      selected: ''
     };
   }
 
+  clearMovies = () => {
+      this.props.resetHomePage(this.state.movies)
+  }
+
+
   handleChange = (event) => {
-    if (event.target.value === "high") {
-      this.sortMoviesHighToLow('average_rating');
+    this.setState({
+        selected: event.target.value
+    })
+      if (event.target.value === 'allMovies') {
+          this.props.displaySortedMovies(this.state.movies, this.state.movies);
+        //   this.setState({
+        //       sortedMovies: this.state.movies
+        //   })
+    } else if (event.target.value === "high") {
+        this.props.displaySortedMovies(this.state.movies,
+          this.sortMoviesHighToLow("average_rating"))
     } else if (event.target.value === "low") {
-      this.sortMoviesLowToHigh("average_rating");
+        this.props.displaySortedMovies(this.state.movies,
+          this.sortMoviesLowToHigh("average_rating"))
     } else if (event.target.value === "alphabetically") {
-        this.sortMoviesLowToHigh('title')
+        this.props.displaySortedMovies(
+          this.state.movies, this.sortMoviesLowToHigh("title")
+        );
     } else if (event.target.value === 'reverseAlphabetically') {
-        this.sortMoviesHighToLow('title');
+        this.props.displaySortedMovies(
+          this.state.movies, this.sortMoviesHighToLow("title")
+        );
     }
   }
 
   sortMoviesHighToLow = (key) => {
-    return this.state.movies.sort((a, b) => {
+    return this.state.sortedMovies.sort((a, b) => {
         if (a[key] > b[key]) {
             return -1
         }
@@ -30,10 +51,16 @@ class Sort extends Component {
   }
 
   sortMoviesLowToHigh = (key) => {
-      return this.state.movies.sort((a, b) => {
+      return this.state.sortedMovies.sort((a, b) => {
         if (a[key] < b[key]) {
           return -1;
         }
+      })
+  }
+
+  handleClear = (event) => {
+      this.setState({
+          selected: ''
       })
   }
 
@@ -41,8 +68,8 @@ class Sort extends Component {
     return (
       <form className="sortDropDown">
         <label htmlFor="movies">Sort by:</label>
-        <select name="movies" id="movies" onChange={this.handleChange}>
-          <option value="placeholder">Choose an option</option>
+        <select name="movies" id="movies" value={this.state.selected} onChange={this.handleChange}>
+          <option value="allMovies">View All Movies</option>
           <option value="high">Rating High to Low</option>
           <option value="low">Rating Low to High</option>
           <option value="alphabetically">Movie Title A to Z</option>

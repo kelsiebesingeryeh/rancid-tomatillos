@@ -10,6 +10,9 @@ const Header = ({
   displaySearchResults,
   displaySubHeadingText,
   showSort,
+  displaySortedMovies,
+  sortedMovies,
+  clearSearchResults,
 }) => {
   let randomMovie = Math.floor(Math.random() * movies.length);
   let randomMovieHeader = movies[randomMovie];
@@ -27,10 +30,14 @@ const Header = ({
               displaySubHeadingText={displaySubHeadingText}
             />
           )}
-          {showSort && 
-          <Sort 
-          movies={movies} 
-          />}
+          {showSort && (
+            <Sort
+              movies={movies}
+              sortedMovies={sortedMovies}
+              displaySortedMovies={displaySortedMovies}
+              clearSearchResults={clearSearchResults}
+            />
+          )}
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
             <div className="headerText">
