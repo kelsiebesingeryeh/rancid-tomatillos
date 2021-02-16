@@ -33,7 +33,7 @@ class Form extends Component {
   render() {
     return (
       <div className="formStyling">
-        <form>
+        <form className="searchForm">
           <input
             type="text"
             name="searchInput"
