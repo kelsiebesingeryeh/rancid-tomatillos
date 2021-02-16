@@ -21,9 +21,8 @@ nav {
 }
 
 .sidebarIcons {
-  display: flex;
+  @include flexDisplay(flex, center)
   flex-direction: column;
   align-self: flex-start;
-  justify-content: center;
   width: 100%;
 }
