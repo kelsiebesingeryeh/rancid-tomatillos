@@ -20,6 +20,9 @@ View the deployed site [here]().
 ## Introduction
 For this project we were tasked to create an application for viewing a variety of movies, and also viewing a specific movies's details. Users can search through the movie list in the database by title or they can sort the movies by rating or alphabetically. When a user has searched or filtered a movie, the user will see their choice of movies displayed on the homepage. If a user is interested in learning more about a particular movie, they can click on the movie poster and view that movie's details. Details for movies can include a movie's trailer, budget, revenue, genre, ratings, runtime and release date. 
 
+![demo-homepage](https://i.imgur.com/7AjGpUl.png)
+![demo-homepage2](https://i.imgur.com/L8jEqnV.png)
+
 ## Set-Up Instructions
 1. Clone the repository
 ```git@github.com:christina-cook/rancid-tomatillos.git```
@@ -40,10 +43,9 @@ For this project we were tasked to create an application for viewing a variety o
 7. Cypress will open a new window to run all tests. Watch the magic happen in real time!
 
 ## Using Rancid Tomatillos
-// INSERT SCREENSHOTS AND VIDEO DEMO
-// SEARCH
-// SORT
-// DISPLAY DETAILS
+![demo](https://media.giphy.com/media/7tbdpO1pt950NY0Ylm/giphy.gif)
+![demo-movie-details](https://i.imgur.com/RUQOEYj.png)
+![demo-movie-details2](https://i.imgur.com/ARUkg0x.png)
 
 ## Challenges and Wins
 * **Challenge**: One of the bigger challenges we ran into earlier on was trying to get two APIS to run asynchronous as the movie details page loaded. We wanted to fetch data from the movie details API and we also wanted to fetch data from the movie trailer API. After trying a few different ways and reaching out to mentors and instructors for support, we decided a Promise.all was the route we wanted to take. Once we ran the fetch with Promise.all and set the state to the data we wanted, everything displayed on the page as we expected and at the same time.
