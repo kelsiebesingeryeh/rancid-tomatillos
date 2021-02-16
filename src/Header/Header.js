@@ -76,4 +76,4 @@ Header.propTypes = {
   showSort: PropTypes.bool,
   displaySortedMovies: PropTypes.func,
   sortedMovies: PropTypes.array
-};
+}

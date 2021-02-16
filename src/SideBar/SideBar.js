@@ -27,7 +27,7 @@ const SideBar = ({resetNavbarLinks, clearSearchResults}) => {
                 value="search"
                 onClick={() => resetNavbarLinks("showForm", "showForm")}
               />
-            );
+            )
           }}
           />
           <Route exact path='/' render={ () => {
@@ -37,12 +37,17 @@ const SideBar = ({resetNavbarLinks, clearSearchResults}) => {
             alt="up-and-down-arrows"
             value="sort"
             onClick={() => resetNavbarLinks('showSort', "showSort")}
-            />;
+            />
           }}
           />
         </div>
       </nav>
-    );
+    )
 }
 
 export default SideBar
+
+SideBar.propTypes = {
+  resetNavbarLinks: PropTypes.func,
+  clearSearchResults: PropTypes.func,
+}

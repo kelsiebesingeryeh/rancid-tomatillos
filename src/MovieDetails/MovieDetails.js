@@ -40,8 +40,7 @@ class MovieDetails extends Component {
   }
 
   returnTrailer() {
-    const trailer = this.state.currentMovieTrailer.find(video => video.type === "Trailer")
-    return trailer
+    return this.state.currentMovieTrailer.find(video => video.type === "Trailer")
   }
 
   render() {
@@ -53,7 +52,9 @@ class MovieDetails extends Component {
 
           {this.state.currentMovie &&
           <>
-            <MovieDetailsHeader currentMovie={this.state.currentMovie}/>
+            <MovieDetailsHeader 
+            currentMovie={this.state.currentMovie}
+            />
             <div className="movieDetailsCard">
               <img
                 className="poster"
@@ -101,5 +102,6 @@ class MovieDetails extends Component {
 export default MovieDetails
 
 MovieDetails.propTypes = {
-  currentMovie: PropTypes.object
+  currentMovie: PropTypes.object,
+  id: PropTypes.number
 }
