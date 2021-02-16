@@ -37,6 +37,8 @@ class App extends Component {
         [key]: !this.state[value],
         showSort: false,
         sortedMovies: [],
+        searchResults: [],
+        searchResultInput: "",
       })
     } else if (key === "showSort") {
       this.setState({
@@ -44,7 +46,8 @@ class App extends Component {
         showForm: false,
         searchResults: [],
         searchResultInput: "",
-      })
+        sortedMovies: [],
+      });
     }
   }
 
