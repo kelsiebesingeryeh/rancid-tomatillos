@@ -17,9 +17,9 @@ const Card = ({ title, posterImage, id, avgRating }) => {
           />
         </Link>
       </div>
-      <div className="movieTitles">
+      <div className="cardDetails">
         <p className="movieTitle">{title}</p>
-        <span className="viewRatings">
+        <span className="ratingContainer">
           <img className="star" src={star} alt="star" />
           <p className="movieRating">{avgRating.toFixed(1)}</p>
         </span>
