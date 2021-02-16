@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import Movies from '../Movies/Movies';
+import React, { Component } from 'react'
+import Movies from '../Movies/Movies'
 import './App.scss'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
-import Form from '../Form/Form'
 import { Route } from 'react-router-dom'
 import { getAllMovies } from '../Data/API'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       movies: [],
       currentMovie: {},
@@ -22,7 +20,7 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    };
+    }
   }
 
   componentDidMount() {
@@ -30,41 +28,37 @@ class App extends Component {
       .then((movies) =>
         this.setState({ movies: movies.movies, loading: false })
       )
-      .catch((error) => this.setState({ error: "Something went wrong!" }));
+      .catch((error) => this.setState({ error: "Something went wrong!" }))
   }
 
-  resetNavbarLinks = (key, value, event) => {
-    if (this.state.searchResults.length) {
+  resetNavbarLinks = (key, value) => {
+    if (this.state.searchResults.length > 0) {
       this.setState({
         searchResults: [],
         searchResultInput: "",
-      });
+        [key]: !this.state[value],
+      })
     } else if (key === "showForm") {
       this.setState({
         [key]: !this.state[value],
         showSort: false,
-        sortedMovies: []
-      });
+        sortedMovies: [],
+      })
     } else if (key === "showSort") {
       this.setState({
         [key]: !this.state[value],
         showForm: false,
-        searchResults: []
-      });
+        searchResults: [],
+        searchResultInput: "",
+      })
     }
-  };
+  }
 
-  displaySubHeadingText = (input) => {
+  displayContent = (key, value) => {
     this.setState({
-      searchResultInput: input,
-    });
-  };
-
-  displaySearchResults = (movies) => {
-    this.setState({
-      searchResults: movies,
-    });
-  };
+      [key]: value,
+    })
+  }
 
   clearSearchResults = () => {
     this.setState({
@@ -73,21 +67,15 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    });
-  };
+    })
+  }
 
   displaySortedMovies = (originalList, sortedList) => {
     this.setState({
       movies: originalList,
       sortedMovies: sortedList,
-    });
-  };
-
-  clearDropDownSelections = () => {
-    this.setState({
-      sortedMovies: [],
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -95,9 +83,8 @@ class App extends Component {
         {this.state.error && (
           <h2 className="errorMessage">{this.state.error}</h2>
         )}
-        {/* {this.state.loading && (
-            <h2>Loading...</h2>
-        )} */}
+
+        {this.state.loading && <h2>Loading...</h2>}
 
         {this.state.movies.length > 0 && (
           <>
@@ -111,15 +98,12 @@ class App extends Component {
                       <SideBar
                         resetNavbarLinks={this.resetNavbarLinks}
                         clearSearchResults={this.clearSearchResults}
-                        showForm={this.state.showForm}
-                        showSort={this.state.showSort}
                       />
                       <div className="mainDisplayContainer">
                         <Header
                           movies={this.state.movies}
                           showForm={this.state.showForm}
-                          displaySearchResults={this.displaySearchResults}
-                          displaySubHeadingText={this.displaySubHeadingText}
+                          displayContent={this.displayContent}
                           showSort={this.state.showSort}
                           displaySortedMovies={this.displaySortedMovies}
                           sortedMovies={this.state.sortedMovies}
@@ -139,7 +123,7 @@ class App extends Component {
                       </div>
                     </div>
                   </>
-                );
+                )
               }}
             />
           </>
@@ -157,14 +141,14 @@ class App extends Component {
                     <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
-                );
+                )
               }}
             />
           </>
         )}
       </main>
-    );
+    )
   }
 }
 
-export default App;
+export default App

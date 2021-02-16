@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import './Sort.scss'
+import PropTypes from "prop-types"
 
 class Sort extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       movies: [...this.props.movies],
       sortedMovies: this.props.movies,
       selected: ''
-    };
+    }
   }
 
   handleChange = (event) => {
@@ -30,7 +31,7 @@ class Sort extends Component {
     } else if (event.target.value === 'reverseAlphabetically') {
         this.props.displaySortedMovies(
           this.state.movies, this.sortMoviesHighToLow("title")
-        );
+        )
     }
   }
 
@@ -63,8 +64,13 @@ class Sort extends Component {
           <option value="reverseAlphabetically">Movie Title Z to A</option>
         </select>
       </form>
-    );
+    )
   }
 }
 
 export default Sort
+
+Sort.propTypes = {
+    movie: PropTypes.array,
+    sortedMovies: PropTypes.array
+}

@@ -6,22 +6,20 @@ class Form extends Component {
     super(props)
     this.state = {
       searchInput: "",
-    };
+    }
   }
 
   handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-    this.filterMovies(event)
-    this.props.displaySubHeadingText(event.target.value);
+    this.setState({[event.target.name]: event.target.value})
+    this.filterMovies()
+    this.props.displayContent("searchResultInput", event.target.value);
   }
 
-  filterMovies = (event) => {
+  filterMovies = () => {
     const moviesToDisplay = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
     })
-    this.props.displaySearchResults(moviesToDisplay)
+    this.props.displayContent('searchResults', moviesToDisplay)
   }
 
   clearInputs = () => {

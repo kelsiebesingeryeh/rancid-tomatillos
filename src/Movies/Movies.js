@@ -1,6 +1,6 @@
-import React from 'react';
-import Card from '../Card/Card';
-import './Movies.scss';
+import React from 'react'
+import Card from '../Card/Card'
+import './Movies.scss'
 import PropTypes from 'prop-types'
 
 const Movies = ({movies, sortedMovies, searchResults}) => {
@@ -33,9 +33,10 @@ const Movies = ({movies, sortedMovies, searchResults}) => {
   )
 }
 
-export default Movies;
+export default Movies
 
  Movies.propTypes = {
    movies: PropTypes.array,
-   displayMovieDetails: PropTypes.func
- };
+   sortedMovies: PropTypes.array,
+   searchResults: PropTypes.array
+ }

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './MovieDetails.scss';
+import React, {Component} from 'react'
+import './MovieDetails.scss'
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import { getSingleMovieDetails } from '../Data/API'
@@ -13,7 +13,7 @@ class MovieDetails extends Component {
       currentMovieTrailer: null,
       id: this.props.id,
       error: "",
-    };
+    }
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class MovieDetails extends Component {
         currentMovieTrailer: data[1].videos
       })
     })
-    .catch((error) => this.setState({ error: "Something went wrong!" }));
+    .catch((error) => this.setState({ error: "Something went wrong!" }))
   }
 
   returnDate(date) {
@@ -40,8 +40,7 @@ class MovieDetails extends Component {
   }
 
   returnTrailer() {
-    const trailer = this.state.currentMovieTrailer.find(video => video.type === "Trailer")
-    return trailer
+    return this.state.currentMovieTrailer.find(video => video.type === "Trailer")
   }
 
   render() {
@@ -53,7 +52,9 @@ class MovieDetails extends Component {
 
           {this.state.currentMovie &&
           <>
-            <MovieDetailsHeader currentMovie={this.state.currentMovie}/>
+            <MovieDetailsHeader 
+            currentMovie={this.state.currentMovie}
+            />
             <div className="movieDetailsCard">
               <img
                 className="poster"
@@ -101,5 +102,6 @@ class MovieDetails extends Component {
 export default MovieDetails
 
 MovieDetails.propTypes = {
-  currentMovie: PropTypes.object
+  currentMovie: PropTypes.object,
+  id: PropTypes.number
 }

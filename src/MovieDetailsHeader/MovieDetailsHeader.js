@@ -36,11 +36,11 @@ const MovieDetailsHeader = ( { currentMovie }) => {
           </div>
         </div>
       </header>
-    );
+    )
     }
 
     export default MovieDetailsHeader
 
     MovieDetailsHeader.propTypes = {
       currentMovie: PropTypes.object,
-    };
+    }
