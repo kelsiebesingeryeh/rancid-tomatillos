@@ -7,8 +7,7 @@ import Sort from '../Sort/Sort'
 const Header = ({
   movies,
   showForm,
-  displaySearchResults,
-  displayText,
+  displayContent,
   showSort,
   displaySortedMovies,
   sortedMovies,
@@ -24,11 +23,7 @@ const Header = ({
         <div className="subHeader">
           <div className="forms">
             {showForm && (
-              <Form
-                movies={movies}
-                displaySearchResults={displaySearchResults}
-                displayText={displayText}
-              />
+              <Form movies={movies} displayContent={displayContent} />
             )}
             {showSort && (
               <Sort
@@ -71,8 +66,7 @@ export default Header
 Header.propTypes = {
   movies: PropTypes.array,
   showForm: PropTypes.bool,
-  displaySearchResults: PropTypes.func,
-  displayText: PropTypes.func,
+  displayContent: PropTypes.func,
   showSort: PropTypes.bool,
   displaySortedMovies: PropTypes.func,
   sortedMovies: PropTypes.array,

@@ -12,14 +12,14 @@ class Form extends Component {
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
     this.filterMovies()
-    this.props.displayText('searchResultInput', event.target.value)
+    this.props.displayContent("searchResultInput", event.target.value);
   }
 
   filterMovies = () => {
     const moviesToDisplay = this.props.movies.filter(movie => {
       return movie.title.toLowerCase().includes(this.state.searchInput.toLowerCase())
     })
-    this.props.displaySearchResults(moviesToDisplay)
+    this.props.displayContent('searchResults', moviesToDisplay)
   }
 
   clearInputs = () => {

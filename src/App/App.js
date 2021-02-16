@@ -9,7 +9,7 @@ import { getAllMovies } from '../Data/API'
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       movies: [],
       currentMovie: {},
@@ -20,7 +20,7 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -36,35 +36,35 @@ class App extends Component {
       this.setState({
         searchResults: [],
         searchResultInput: "",
-        [key]: !this.state[value]
+        [key]: !this.state[value],
       });
     } else if (key === "showForm") {
       this.setState({
         [key]: !this.state[value],
         showSort: false,
-        sortedMovies: []
-      })
+        sortedMovies: [],
+      });
     } else if (key === "showSort") {
       this.setState({
         [key]: !this.state[value],
         showForm: false,
         searchResults: [],
-        searchResultInput: ""
+        searchResultInput: "",
       });
     }
-  }
+  };
 
-  displayText = (key, value) => {
+  displayContent = (key, value) => {
     this.setState({
       [key]: value,
-    })
-  }
+    });
+  };
 
   displaySearchResults = (movies) => {
     this.setState({
       searchResults: movies,
-    })
-  }
+    });
+  };
 
   clearSearchResults = () => {
     this.setState({
@@ -73,15 +73,15 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    })
-  }
+    });
+  };
 
   displaySortedMovies = (originalList, sortedList) => {
     this.setState({
       movies: originalList,
       sortedMovies: sortedList,
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -90,9 +90,7 @@ class App extends Component {
           <h2 className="errorMessage">{this.state.error}</h2>
         )}
 
-        {this.state.loading && (
-            <h2>Loading...</h2>
-        )}
+        {this.state.loading && <h2>Loading...</h2>}
 
         {this.state.movies.length > 0 && (
           <>
@@ -111,8 +109,7 @@ class App extends Component {
                         <Header
                           movies={this.state.movies}
                           showForm={this.state.showForm}
-                          displaySearchResults={this.displaySearchResults}
-                          displayText={this.displayText}
+                          displayContent={this.displayContent}
                           showSort={this.state.showSort}
                           displaySortedMovies={this.displaySortedMovies}
                           sortedMovies={this.state.sortedMovies}
@@ -144,19 +141,19 @@ class App extends Component {
               exact
               path={"/movies/:id"}
               render={({ match }) => {
-                const id = parseInt(match.params.id)
+                const id = parseInt(match.params.id);
                 return (
                   <div className="movieDisplayContainer">
                     <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
-                )
+                );
               }}
             />
           </>
         )}
       </main>
-    )
+    );
   }
 }
 
