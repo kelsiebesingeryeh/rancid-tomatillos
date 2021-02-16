@@ -14,11 +14,6 @@ header {
   height: 300px;
 }
 
-.title {
-  @include flexDisplay(flex, center);
-  width: 100%;
-}
-
 .mainPageContainer {
   display: flex;
 }
