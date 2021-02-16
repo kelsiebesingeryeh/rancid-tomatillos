@@ -1,12 +1,12 @@
 .movieContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 550px) {
-    .movieContainer {
-        justify-items: center;
-    }
+  .movieContainer {
+    justify-items: center;
+  }
 }
