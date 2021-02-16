@@ -43,9 +43,16 @@ For this project we were tasked to create an application for viewing a variety o
 7. Cypress will open a new window to run all tests. Watch the magic happen in real time!
 
 ## Using Rancid Tomatillos
-![demo](https://media.giphy.com/media/7tbdpO1pt950NY0Ylm/giphy.gif)
-![demo-movie-details](https://i.imgur.com/RUQOEYj.png)
-![demo-movie-details2](https://i.imgur.com/ARUkg0x.png)
+
+## Search for a movie
+![demo]()
+
+## Filter a movie
+![demo]()
+
+## View a movie's details
+
+![demo-details]()
 
 ## Challenges and Wins
 * **Challenge**: One of the bigger challenges we ran into earlier on was trying to get two APIS to run asynchronous as the movie details page loaded. We wanted to fetch data from the movie details API and we also wanted to fetch data from the movie trailer API. After trying a few different ways and reaching out to mentors and instructors for support, we decided a Promise.all was the route we wanted to take. Once we ran the fetch with Promise.all and set the state to the data we wanted, everything displayed on the page as we expected and at the same time.
