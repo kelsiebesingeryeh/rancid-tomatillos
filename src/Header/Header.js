@@ -34,7 +34,7 @@ const Header = ({
               />
             )}
           </div>
-          <div className="headerTitle">
+          <div>
             <h1 className="appTitle">Rancid Tomatillos</h1>
           </div>
         </div>

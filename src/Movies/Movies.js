@@ -19,8 +19,6 @@ const Movies = ({movies, sortedMovies, searchResults}) => {
     })
   }
 
-
-
   return (
     <section className="movieContainer">
         {sortedMovies.length > 0 &&

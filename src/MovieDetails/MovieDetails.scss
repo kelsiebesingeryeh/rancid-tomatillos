@@ -1,5 +1,22 @@
 @import '../styles/base';
 
+button {
+  font-family: $raleway-font;
+  border-radius: 5px;
+  background-color: $white;
+  padding: 0.5%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.listDetails {
+  display: flex;
+  font-size: .85rem;
+}
+
 .movieDetails {
   padding: 1rem;
 }
@@ -10,22 +27,8 @@
   margin-bottom: 5%;
 }
 
-.poster {
-  width: 30%;
-}
-
-.movieInfo {
-  flex-direction: column;
-  margin-left: 5%;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-top: 0;
-}
-
-.movieOverview {
-  font-size: .85rem;
+.movieDetailsData {
+  list-style-type: none;
 }
 
 .movieDetailsList {
@@ -33,12 +36,16 @@ h2 {
   padding-left: 0;
 }
 
-.movieDetailsData {
-  list-style-type: none;
+.movieInfo {
+  flex-direction: column;
+  margin-left: 5%;
 }
 
-.listDetails {
-  display: flex;
+.poster {
+  width: 30%;
+}
+
+.movieOverview {
   font-size: .85rem;
 }
 
@@ -50,25 +57,16 @@ h2 {
   width: 100%;
 }
 
-button {
-  font-family: $raleway-font;
-  border-radius: 5px;
-  background-color: $white;
-  padding: 0.5%;
-}
-
-.movieDisplayContainer {
-  display: flex;
-}
-
 @media screen and (min-width: 551px) and (max-width: 1024px) {
   .poster {
     width: 50%;
     align-self: center;
   }
+
   .trailerContainer {
     width: 40%;
   }
+
   .movieDetailsCard {
     flex-direction: column;
   }
@@ -86,6 +84,7 @@ button {
   .trailerContainer {
     display: none;
   }
+  
   .trailerContainer > div {
     width: 0;
     height: 0;

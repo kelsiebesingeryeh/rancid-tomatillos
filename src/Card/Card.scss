@@ -1,55 +1,51 @@
 @import '../styles/base';
 
+.cardDetails {
+  @include flexDisplay(flex, space-between);
+}
+
 .movieCard {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
 }
 
 .moviePosterImage {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    transition: transform 500ms;
-}
-
-.moviePosterImage:hover {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 500ms;
+  &:hover {
     transform: scale(1.03);
-}
-
-.movieTitle {
-    margin: 2%;
+  }
 }
 
 .movieRating {
-    margin: auto;
+  margin: auto;
+}
+
+.movieTitle {
+  margin: 2%;
+}
+
+.ratingContainer {
+  display: flex;
+  align-self: flex-end;
+  background-color: $yellow;
+  width: 15%;
+  padding: 0.10rem;
+  border-radius: 5px;
+  color: $black;
+  margin-bottom: 2%;
 }
 
 .star {
-    width: 30%;
-    object-fit: contain;
-    margin: auto;
-}
-
-.viewRatings {
-    display: flex;
-    align-self: flex-end;
-    background-color: $yellow;
-    width: 15%;
-    padding: 0.10rem;
-    border-radius: 5px;
-    color: $black;
-    margin-left: -19%;
-    margin-bottom: 2%;
-}
-
-.movieTitles {
-    display: flex;
-    justify-content: space-between;
+  width: 30%;
+  margin: auto;
 }
 
 @media screen and (max-width: 550px) {
-    .movieCard {
-        max-width: 100%;
-    }
+  .movieCard {
+      max-width: 100%;
+  }
 }
