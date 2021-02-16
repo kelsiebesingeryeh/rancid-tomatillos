@@ -1,73 +1,71 @@
 @import '../styles/base';
 
+.appTitleDetailsPage {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: $londrina-font;
+}
+
 .headerContainer {
-    @extend .headerContainer;
-    flex-direction: column;
-}
-
-.headerText {
-    @include flexDisplay(flex, flex-start);
-}
-
-.headerTitle {
-    margin: 0;
-}
-
-.year {
-    margin-left: 8%;
-}
-
-.movieDetailsInfo {
-    padding: 1rem;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.movieImage {
-   @extend .headerImage;
+  @extend .headerContainer;
+  flex-direction: column;
 }
 
 .headerImage {
-    @extend .headerImageContainer;
+  @extend .headerImageContainer;
 }
 
-.movieDetailsSubHeader {
-    display: flex;
-    justify-content: flex-end;
+.headerText {
+  @include flexDisplay(flex, flex-start);
+}
+
+.headerTitle {
+  margin: 0;
 }
 
 .movieDetailsHeader {
-    display: flex;
+  display: flex;
 }
 
-.appTitleDetailsPage {
-    font-size: 2.5rem;
-    margin: 0;
-    font-family: $londrina-font;
+.movieDetailsInfo {
+  padding: 1rem;
+  width: 30%;
+  @include flexDisplay(flex, center);
+  flex-direction: column;
+}
+
+.movieDetailsSubHeader {
+  @include flexDisplay(flex, flex-end);
+}
+
+.movieImage {
+  @extend .headerImage;
+}
+
+.year {
+  margin-left: 8%;
 }
 
 @media screen and (min-width: 551px) and (max-width: 1024px) {
-    .movieDetailsHeader {
-        justify-content: flex-end;
-    }
+  .movieDetailsHeader {
+    justify-content: flex-end;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .movieDetailsHeader {
-        justify-content: flex-end;
-    }
+  .movieDetailsHeader {
+    justify-content: flex-end;
+  }
 
-    .movieDetailsInfo,
-    .movieImage {
-        display: none;
-    }
+  .movieDetailsInfo,
+  .movieImage {
+    display: none;
+  }
 
-    .appTitleDetailsPage {
-        font-size: 1.5rem;
-        white-space: nowrap;
-        padding: 0;
-    }
+  .appTitleDetailsPage {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    padding: 0;
+  }
 
 }
