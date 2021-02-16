@@ -12,7 +12,7 @@ class Form extends Component {
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
     this.filterMovies()
-    this.props.displaySubHeadingText(event.target.value);
+    this.props.displayText('searchResultInput', event.target.value)
   }
 
   filterMovies = () => {

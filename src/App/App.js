@@ -54,9 +54,9 @@ class App extends Component {
     }
   }
 
-  displaySubHeadingText = (input) => {
+  displayText = (key, value) => {
     this.setState({
-      searchResultInput: input,
+      [key]: value,
     })
   }
 
@@ -112,7 +112,7 @@ class App extends Component {
                           movies={this.state.movies}
                           showForm={this.state.showForm}
                           displaySearchResults={this.displaySearchResults}
-                          displaySubHeadingText={this.displaySubHeadingText}
+                          displayText={this.displayText}
                           showSort={this.state.showSort}
                           displaySortedMovies={this.displaySortedMovies}
                           sortedMovies={this.state.sortedMovies}
@@ -132,7 +132,7 @@ class App extends Component {
                       </div>
                     </div>
                   </>
-                )
+                );
               }}
             />
           </>
