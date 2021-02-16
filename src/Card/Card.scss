@@ -1,8 +1,7 @@
 @import '../styles/base';
 
 .cardDetails {
-  display: flex;
-  justify-content: space-between;
+  @include flexDisplay(flex, space-between);
 }
 
 .movieCard {
