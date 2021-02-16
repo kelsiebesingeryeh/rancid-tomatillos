@@ -31,7 +31,7 @@ class Form extends Component {
   render() {
     return (
       <div className="formContainer">
-        <form>
+        <form className="searchForm">
           <input
             type="text"
             name="searchInput"
