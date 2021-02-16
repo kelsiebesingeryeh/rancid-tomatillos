@@ -12,9 +12,10 @@ const Header = ({
   displaySortedMovies,
   sortedMovies,
 }) => {
-  const filteredMovies = movies.filter((movie) => !movie["backdrop_path"].includes('NoPhotoAvailable'))
-  let randomMovie = Math.floor(Math.random() * filteredMovies.length)
-  let randomMovieHeader = filteredMovies[randomMovie]
+
+  const filteredMovies = movies.filter((movie) => !movie["backdrop_path"].includes('NoPhotoAvailable'));
+  let randomMovie = Math.floor(Math.random() * filteredMovies.length);
+  let randomMovieHeader = filteredMovies[randomMovie];
   let randomMoveImg = randomMovieHeader["backdrop_path"]
   let year = randomMovieHeader.release_date.split("-")[0]
 
@@ -46,15 +47,11 @@ const Header = ({
             </div>
           </div>
           <div className="randomMovieImage">
-            {randomMoveImg.includes("NoPhotoAvailable") ? (
-              <div className="noHeaderImage"></div>
-            ) : (
               <img
                 className="headerImage"
                 src={randomMoveImg}
                 alt={`${randomMovieHeader.title}-poster`}
               />
-            )}
           </div>
         </div>
       </header>
