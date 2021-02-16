@@ -12,8 +12,9 @@ const Header = ({
   displaySortedMovies,
   sortedMovies,
 }) => {
-  let randomMovie = Math.floor(Math.random() * movies.length)
-  let randomMovieHeader = movies[randomMovie]
+  const filteredMovies = movies.filter((movie) => !movie["backdrop_path"].includes('NoPhotoAvailable'))
+  let randomMovie = Math.floor(Math.random() * filteredMovies.length)
+  let randomMovieHeader = filteredMovies[randomMovie]
   let randomMoveImg = randomMovieHeader["backdrop_path"]
   let year = randomMovieHeader.release_date.split("-")[0]
 
