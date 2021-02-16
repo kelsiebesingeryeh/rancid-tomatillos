@@ -2,6 +2,7 @@
 
 .mainHeader {
     @extend .headerContainer;
+    flex-direction: column;
 }
 
 .randomMovieImage {
@@ -16,19 +17,53 @@
     @include flexDisplay(flex, flex-start);
 }
 
-.appTitle {
-  @include flexDisplay(flex, flex-end);
-}
-
-.headerStyling {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-
 .headerInfo {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  margin-top: 60%;
+  justify-content: center;
+  width: 30%;
 }
+
+.movieHeader {
+  display: flex;
+}
+
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appTitle {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: $londrina-font;
+}
+
+@media screen and (max-width: 550px) {
+ 
+  .headerInfo,
+  .headerImage {
+    display: none;
+  }
+
+  .appTitle {
+    white-space: nowrap;
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+  .headerTitle,
+  .headerText {
+    font-size: 1rem;
+  }
+
+  .headerYear {
+    margin: 0;
+  }
+  header {
+    justify-content: space-between;
+  }
+}
+

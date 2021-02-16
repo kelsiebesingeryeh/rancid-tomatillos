@@ -6,7 +6,11 @@ const MovieDetailsHeader = ( { currentMovie }) => {
     let year = currentMovie.release_date.split('-')[0]
 
     return (
-      <header className="movieDetailsHeader">
+      <header className="headerContainer">
+        <div className="movieDetailsSubHeader">
+          <h1 className="appTitleDetailsPage">Rancid Tomatillos</h1>
+        </div>
+        <div className="movieDetailsHeader">
           <div className="movieDetailsInfo">
             <h2 className="headerTitle">{currentMovie.title}</h2>
             <div className="headerText">
@@ -19,17 +23,17 @@ const MovieDetailsHeader = ( { currentMovie }) => {
             </div>
           </div>
 
-        <div className="movieImage">
-          <h1 className="appTitle">Rancid Tomatillos</h1>
-          {currentMovie.backdrop_path.includes("NoPhotoAvailable") ? (
-            <p></p>
-          ) : (
-            <img
-              className="headerImage"
-              src={currentMovie.backdrop_path}
-              alt={`${currentMovie.title}-poster`}
-            />
-          )}
+          <div className="movieImage">
+            {currentMovie.backdrop_path.includes("NoPhotoAvailable") ? (
+              <p></p>
+            ) : (
+              <img
+                className="headerImage"
+                src={currentMovie.backdrop_path}
+                alt={`${currentMovie.title}-poster`}
+              />
+            )}
+          </div>
         </div>
       </header>
     );

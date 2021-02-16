@@ -21,39 +21,45 @@ const Header = ({
   return (
     <>
       <header className="mainHeader">
-        <div className="headerStyling">
-          {showForm && (
-            <Form
-              movies={movies}
-              displaySearchResults={displaySearchResults}
-              displaySubHeadingText={displaySubHeadingText}
-            />
-          )}
-          {showSort && (
-            <Sort
-              movies={movies}
-              sortedMovies={sortedMovies}
-              displaySortedMovies={displaySortedMovies}
-            />
-          )}
+        <div className="subHeader">
+          <div className="forms">
+            {showForm && (
+              <Form
+                movies={movies}
+                displaySearchResults={displaySearchResults}
+                displaySubHeadingText={displaySubHeadingText}
+              />
+            )}
+            {showSort && (
+              <Sort
+                movies={movies}
+                sortedMovies={sortedMovies}
+                displaySortedMovies={displaySortedMovies}
+              />
+            )}
+          </div>
+          <div className="headerTitle">
+            <h1 className="appTitle">Rancid Tomatillos</h1>
+          </div>
+        </div>
+        <div className="movieHeader">
           <div className="headerInfo">
             <h2 className="headerTitle">{randomMovieHeader.title}</h2>
             <div className="headerText">
-              <p>{year}</p>
+              <p className="headerYear">{year}</p>
             </div>
           </div>
-        </div>
-        <div className="randomMovieImage">
-          <h1 className="appTitle">Rancid Tomatillos</h1>
-          {randomMoveImg.includes("NoPhotoAvailable") ? (
-            <div className="noHeaderImage"></div>
-          ) : (
-            <img
-              className="headerImage"
-              src={randomMoveImg}
-              alt={`${randomMovieHeader.title}-poster`}
-            />
-          )}
+          <div className="randomMovieImage">
+            {randomMoveImg.includes("NoPhotoAvailable") ? (
+              <div className="noHeaderImage"></div>
+            ) : (
+              <img
+                className="headerImage"
+                src={randomMoveImg}
+                alt={`${randomMovieHeader.title}-poster`}
+              />
+            )}
+          </div>
         </div>
       </header>
     </>

@@ -60,3 +60,34 @@ button {
 .movieDisplayContainer {
   display: flex;
 }
+
+@media screen and (min-width: 551px) and (max-width: 1024px) {
+  .poster {
+    width: 50%;
+    align-self: center;
+  }
+  .trailerContainer {
+    width: 40%;
+  }
+  .movieDetailsCard {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .poster {
+    width: 100%
+  }
+
+  .movieDetailsCard {
+    flex-direction: column;
+  }
+
+  .trailerContainer {
+    display: none;
+  }
+  .trailerContainer > div {
+    width: 0;
+    height: 0;
+  }
+}
