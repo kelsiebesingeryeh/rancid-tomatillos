@@ -44,15 +44,15 @@ For this project we were tasked to create an application for viewing a variety o
 
 ## Using Rancid Tomatillos
 
-## Search for a movie
+## Search and filter for a movie
 ![demo](https://media.giphy.com/media/p6GwXZxZSDGZQz7Z3r/giphy.gif)
-
-## Filter a movie
-![demo]()
 
 ## View a movie's details
 
-![demo-details]()
+Click on a movie poster to view that movie's details
+
+![demo-details](https://i.imgur.com/RUQOEYj.png)
+![demo-details](https://i.imgur.com/ARUkg0x.png)
 
 ## Challenges and Wins
 * **Challenge**: One of the bigger challenges we ran into earlier on was trying to get two APIS to run asynchronous as the movie details page loaded. We wanted to fetch data from the movie details API and we also wanted to fetch data from the movie trailer API. After trying a few different ways and reaching out to mentors and instructors for support, we decided a Promise.all was the route we wanted to take. Once we ran the fetch with Promise.all and set the state to the data we wanted, everything displayed on the page as we expected and at the same time.
