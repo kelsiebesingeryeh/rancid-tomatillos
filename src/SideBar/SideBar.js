@@ -6,7 +6,7 @@ import './SideBar.scss'
 import PropTypes from 'prop-types'
 import { NavLink, Route } from 'react-router-dom'
 
-const SideBar = ({resetNavbarLinks, clearSearchResults, showSort, showForm}) => {
+const SideBar = ({resetNavbarLinks, clearSearchResults}) => {
     return (
       <nav>
         <div className="sidebarIcons">

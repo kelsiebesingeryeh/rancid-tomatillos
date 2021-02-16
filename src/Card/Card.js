@@ -25,13 +25,14 @@ const Card = ({ title, posterImage, id, avgRating }) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
 
 Card.propTypes = {
   title: PropTypes.string,
   posterImage: PropTypes.string,
-  id: PropTypes.number
-}
+  id: PropTypes.number,
+  avgRating: PropTypes.number
+};

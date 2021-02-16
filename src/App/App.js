@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import Movies from '../Movies/Movies';
+import React, { Component } from 'react'
+import Movies from '../Movies/Movies'
 import './App.scss'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
-import Form from '../Form/Form'
 import { Route } from 'react-router-dom'
 import { getAllMovies } from '../Data/API'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       movies: [],
       currentMovie: {},
@@ -22,7 +20,7 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    };
+    }
   }
 
   componentDidMount() {
@@ -33,38 +31,38 @@ class App extends Component {
       .catch((error) => this.setState({ error: "Something went wrong!" }));
   }
 
-  resetNavbarLinks = (key, value, event) => {
+  resetNavbarLinks = (key, value) => {
     if (this.state.searchResults.length) {
       this.setState({
         searchResults: [],
         searchResultInput: "",
-      });
+      })
     } else if (key === "showForm") {
       this.setState({
         [key]: !this.state[value],
         showSort: false,
         sortedMovies: []
-      });
+      })
     } else if (key === "showSort") {
       this.setState({
         [key]: !this.state[value],
         showForm: false,
         searchResults: []
-      });
+      })
     }
-  };
+  }
 
   displaySubHeadingText = (input) => {
     this.setState({
       searchResultInput: input,
-    });
-  };
+    })
+  }
 
   displaySearchResults = (movies) => {
     this.setState({
       searchResults: movies,
-    });
-  };
+    })
+  }
 
   clearSearchResults = () => {
     this.setState({
@@ -73,21 +71,15 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    });
-  };
+    })
+  }
 
   displaySortedMovies = (originalList, sortedList) => {
     this.setState({
       movies: originalList,
       sortedMovies: sortedList,
-    });
-  };
-
-  clearDropDownSelections = () => {
-    this.setState({
-      sortedMovies: [],
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -95,9 +87,10 @@ class App extends Component {
         {this.state.error && (
           <h2 className="errorMessage">{this.state.error}</h2>
         )}
-        {/* {this.state.loading && (
+
+        {this.state.loading && (
             <h2>Loading...</h2>
-        )} */}
+        )}
 
         {this.state.movies.length > 0 && (
           <>
@@ -111,8 +104,6 @@ class App extends Component {
                       <SideBar
                         resetNavbarLinks={this.resetNavbarLinks}
                         clearSearchResults={this.clearSearchResults}
-                        showForm={this.state.showForm}
-                        showSort={this.state.showSort}
                       />
                       <div className="mainDisplayContainer">
                         <Header
@@ -139,7 +130,7 @@ class App extends Component {
                       </div>
                     </div>
                   </>
-                );
+                )
               }}
             />
           </>
@@ -151,20 +142,20 @@ class App extends Component {
               exact
               path={"/movies/:id"}
               render={({ match }) => {
-                const id = parseInt(match.params.id);
+                const id = parseInt(match.params.id)
                 return (
                   <div className="movieDisplayContainer">
                     <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
-                );
+                )
               }}
             />
           </>
         )}
       </main>
-    );
+    )
   }
 }
 
-export default App;
+export default App
