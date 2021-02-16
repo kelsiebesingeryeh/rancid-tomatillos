@@ -47,3 +47,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 550px) {
+    .movieCard {
+        max-width: 100%;
+    }
+}

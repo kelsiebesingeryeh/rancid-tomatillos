@@ -28,7 +28,7 @@ const Movies = ({movies, sortedMovies, searchResults}) => {
           searchResults.length > 0 &&
           determineMoviesToDisplay(searchResults) ||
           determineMoviesToDisplay(movies)
-        }}
+        }
     </section>
   )
 }

@@ -1,7 +1,8 @@
 @import '../styles/base';
 
-.movieDetailsHeader {
+.headerContainer {
     @extend .headerContainer;
+    flex-direction: column;
 }
 
 .headerText {
@@ -32,13 +33,41 @@
     @extend .headerImageContainer;
 }
 
-.appTitle {
-  @include flexDisplay(flex, flex-end);
+.movieDetailsSubHeader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.movieDetailsHeader {
+    display: flex;
+}
+
+.appTitleDetailsPage {
+    font-size: 2.5rem;
+    margin: 0;
+    font-family: $londrina-font;
+}
+
+@media screen and (min-width: 551px) and (max-width: 1024px) {
+    .movieDetailsHeader {
+        justify-content: flex-end;
+    }
 }
 
 @media screen and (max-width: 550px) {
-    .movieDetailsInfo {
+    .movieDetailsHeader {
+        justify-content: flex-end;
+    }
+
+    .movieDetailsInfo,
+    .movieImage {
         display: none;
     }
-    
+
+    .appTitleDetailsPage {
+        font-size: 1.5rem;
+        white-space: nowrap;
+        padding: 0;
+    }
+
 }
