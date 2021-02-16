@@ -45,7 +45,7 @@ For this project we were tasked to create an application for viewing a variety o
 ## Using Rancid Tomatillos
 
 ## Search for a movie
-![demo]()
+![demo](https://media.giphy.com/media/p6GwXZxZSDGZQz7Z3r/giphy.gif)
 
 ## Filter a movie
 ![demo]()
