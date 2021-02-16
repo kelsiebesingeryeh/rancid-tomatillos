@@ -1,20 +1,13 @@
 @import '../styles/base';
 
-.mainHeader {
-    @extend .headerContainer;
-    flex-direction: column;
-}
-
-.randomMovieImage {
-  @extend .headerImage;
+.appTitle {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: $londrina-font;
 }
 
 .headerImage {
-    @extend .headerImageContainer;
-}
-
-.headerText {
-    @include flexDisplay(flex, flex-start);
+  @extend .headerImageContainer;
 }
 
 .headerInfo {
@@ -25,8 +18,21 @@
   width: 30%;
 }
 
+.headerText {
+  @include flexDisplay(flex, flex-start);
+}
+
+.mainHeader {
+  @extend .headerContainer;
+  flex-direction: column;
+}
+
 .movieHeader {
   display: flex;
+}
+
+.randomMovieImage {
+  @extend .headerImage;
 }
 
 .subHeader {
@@ -35,14 +41,7 @@
   align-items: center;
 }
 
-.appTitle {
-  font-size: 2.5rem;
-  margin: 0;
-  font-family: $londrina-font;
-}
-
 @media screen and (max-width: 550px) {
- 
   .headerInfo,
   .headerImage {
     display: none;
@@ -62,8 +61,8 @@
   .headerYear {
     margin: 0;
   }
+
   header {
     justify-content: space-between;
   }
 }
-
