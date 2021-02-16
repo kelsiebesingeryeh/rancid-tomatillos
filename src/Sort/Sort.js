@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Sort.scss'
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
 class Sort extends Component {
   constructor(props) {

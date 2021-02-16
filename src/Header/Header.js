@@ -12,10 +12,10 @@ const Header = ({
   displaySortedMovies,
   sortedMovies,
 }) => {
-  let randomMovie = Math.floor(Math.random() * movies.length);
-  let randomMovieHeader = movies[randomMovie];
-  let randomMoveImg = randomMovieHeader["backdrop_path"];
-  let year = randomMovieHeader.release_date.split("-")[0];
+  let randomMovie = Math.floor(Math.random() * movies.length)
+  let randomMovieHeader = movies[randomMovie]
+  let randomMoveImg = randomMovieHeader["backdrop_path"]
+  let year = randomMovieHeader.release_date.split("-")[0]
 
   return (
     <>
@@ -58,8 +58,8 @@ const Header = ({
         </div>
       </header>
     </>
-  );
-};
+  )
+}
 
 export default Header
 
@@ -70,4 +70,4 @@ Header.propTypes = {
   showSort: PropTypes.bool,
   displaySortedMovies: PropTypes.func,
   sortedMovies: PropTypes.array,
-};
+}

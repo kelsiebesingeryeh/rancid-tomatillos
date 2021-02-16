@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './MovieDetails.scss';
+import React, {Component} from 'react'
+import './MovieDetails.scss'
 import PropTypes from 'prop-types'
 import MovieDetailsHeader from '../MovieDetailsHeader/MovieDetailsHeader'
 import { getSingleMovieDetails } from '../Data/API'
@@ -13,7 +13,7 @@ class MovieDetails extends Component {
       currentMovieTrailer: null,
       id: this.props.id,
       error: "",
-    };
+    }
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class MovieDetails extends Component {
         currentMovieTrailer: data[1].videos
       })
     })
-    .catch((error) => this.setState({ error: "Something went wrong!" }));
+    .catch((error) => this.setState({ error: "Something went wrong!" }))
   }
 
   returnDate(date) {

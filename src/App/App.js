@@ -9,7 +9,7 @@ import { getAllMovies } from '../Data/API'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       movies: [],
       currentMovie: {},
@@ -20,7 +20,7 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    };
+    }
   }
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class App extends Component {
       .then((movies) =>
         this.setState({ movies: movies.movies, loading: false })
       )
-      .catch((error) => this.setState({ error: "Something went wrong!" }));
+      .catch((error) => this.setState({ error: "Something went wrong!" }))
   }
 
   resetNavbarLinks = (key, value) => {
@@ -37,34 +37,28 @@ class App extends Component {
         searchResults: [],
         searchResultInput: "",
         [key]: !this.state[value],
-      });
+      })
     } else if (key === "showForm") {
       this.setState({
         [key]: !this.state[value],
         showSort: false,
         sortedMovies: [],
-      });
+      })
     } else if (key === "showSort") {
       this.setState({
         [key]: !this.state[value],
         showForm: false,
         searchResults: [],
         searchResultInput: "",
-      });
+      })
     }
-  };
+  }
 
   displayContent = (key, value) => {
     this.setState({
       [key]: value,
-    });
-  };
-
-  displaySearchResults = (movies) => {
-    this.setState({
-      searchResults: movies,
-    });
-  };
+    })
+  }
 
   clearSearchResults = () => {
     this.setState({
@@ -73,15 +67,15 @@ class App extends Component {
       searchResultInput: "",
       showSort: false,
       sortedMovies: [],
-    });
-  };
+    })
+  }
 
   displaySortedMovies = (originalList, sortedList) => {
     this.setState({
       movies: originalList,
       sortedMovies: sortedList,
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -129,7 +123,7 @@ class App extends Component {
                       </div>
                     </div>
                   </>
-                );
+                )
               }}
             />
           </>
@@ -147,13 +141,13 @@ class App extends Component {
                     <SideBar resetNavbarLinks={this.resetNavbarLinks} />
                     <MovieDetails id={id} />
                   </div>
-                );
+                )
               }}
             />
           </>
         )}
       </main>
-    );
+    )
   }
 }
 

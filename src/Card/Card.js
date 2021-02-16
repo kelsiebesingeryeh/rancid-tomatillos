@@ -35,4 +35,4 @@ Card.propTypes = {
   posterImage: PropTypes.string,
   id: PropTypes.number,
   avgRating: PropTypes.number
-};
+}
