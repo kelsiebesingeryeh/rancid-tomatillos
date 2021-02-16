@@ -1,12 +1,12 @@
-@mixin flexDisplay($flex, $alignType) {
-  display: $flex;
-  justify-content: $alignType;
-}
-
 .headerContainer {
   height: fit-content;
   background: linear-gradient(45deg, black, transparent);
   display: flex;
+}
+
+.headerImage {
+   z-index: -1;
+   width: 100%;
 }
 
 .headerImageContainer {
@@ -14,7 +14,7 @@
   object-fit: cover;
 }
 
-.headerImage {
-   z-index: -1;
-   width: 100%;
+@mixin flexDisplay($flex, $alignType) {
+  display: $flex;
+  justify-content: $alignType;
 }
