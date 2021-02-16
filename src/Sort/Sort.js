@@ -16,7 +16,7 @@ class Sort extends Component {
     this.setState({
         selected: event.target.value
     })
-      if (event.target.value === 'allMovies') {
+    if (event.target.value === 'allMovies') {
           this.props.displaySortedMovies(this.state.movies, this.state.movies);
     } else if (event.target.value === "high") {
         this.props.displaySortedMovies(this.state.movies,
@@ -27,7 +27,7 @@ class Sort extends Component {
     } else if (event.target.value === "alphabetically") {
         this.props.displaySortedMovies(
           this.state.movies, this.sortMoviesLowToHigh("title")
-        );
+        )
     } else if (event.target.value === 'reverseAlphabetically') {
         this.props.displaySortedMovies(
           this.state.movies, this.sortMoviesHighToLow("title")
