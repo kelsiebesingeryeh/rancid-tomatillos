@@ -132,10 +132,13 @@ class App extends Component {
                 const id = parseInt(match.params.id);
                 return (
                   <div className="movieDisplayContainer">
-                    <SideBar resetNavbarLinks={this.resetNavbarLinks} />
+                    <SideBar
+                      resetNavbarLinks={this.resetNavbarLinks}
+                      clearSearchResults={this.clearSearchResults}
+                    />
                     <MovieDetails id={id} />
                   </div>
-                )
+                );
               }}
             />
           </>
