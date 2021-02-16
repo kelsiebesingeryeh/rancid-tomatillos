@@ -32,11 +32,12 @@ class App extends Component {
   }
 
   resetNavbarLinks = (key, value) => {
-    if (this.state.searchResults.length) {
+    if (this.state.searchResults.length > 0) {
       this.setState({
         searchResults: [],
         searchResultInput: "",
-      })
+        [key]: !this.state[value]
+      });
     } else if (key === "showForm") {
       this.setState({
         [key]: !this.state[value],
@@ -47,8 +48,9 @@ class App extends Component {
       this.setState({
         [key]: !this.state[value],
         showForm: false,
-        searchResults: []
-      })
+        searchResults: [],
+        searchResultInput: ""
+      });
     }
   }
 
