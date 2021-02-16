@@ -18,7 +18,7 @@ View the deployed site [here]().
 
 
 ## Introduction
-In this project we were tasked to create an application for viewing a variety of movies, and also viewing a specific movies's details. Users can search through the movie list in the database by title or they can sort the movies by rating and sort alphabetically. When a user has searched or filtered a movie, the user will see their chose of movies display on the homepage. If a user is interested in learning more about a particular movie, they can click on the movie poster and view that movie's details. Details for movies can include a movie's trailer, budget, revenue, genre, ratings, runtime and release date. 
+For this project we were tasked to create an application for viewing a variety of movies, and also viewing a specific movies's details. Users can search through the movie list in the database by title or they can sort the movies by rating or alphabetically. When a user has searched or filtered a movie, the user will see their choice of movies displayed on the homepage. If a user is interested in learning more about a particular movie, they can click on the movie poster and view that movie's details. Details for movies can include a movie's trailer, budget, revenue, genre, ratings, runtime and release date. 
 
 ## Set-Up Instructions
 1. Clone the repository
