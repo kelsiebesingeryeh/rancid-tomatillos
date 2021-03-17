@@ -39,6 +39,8 @@ class Sort extends Component {
     return this.state.sortedMovies.sort((a, b) => {
         if (a[key] > b[key]) {
             return -1
+        } else {
+          return 1
         }
     })
   }
@@ -46,7 +48,9 @@ class Sort extends Component {
   sortMoviesLowToHigh = (key) => {
       return this.state.sortedMovies.sort((a, b) => {
         if (a[key] < b[key]) {
-          return -1;
+          return -1
+        } else {
+          return 1
         }
       })
   }
