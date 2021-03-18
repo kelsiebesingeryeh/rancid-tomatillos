@@ -14,4 +14,3 @@ before_script:
   - npm start -- --silent &
 script: 
   - $(npm bin)/cypress run
-  //
