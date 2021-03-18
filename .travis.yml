@@ -9,7 +9,7 @@ cache:
     - ~/.cache
 install:
   - npm ci
-  - npm run build
+  - npm run build || true
 before_script:
   - npm start -- --silent &
 script: 
