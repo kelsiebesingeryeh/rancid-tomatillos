@@ -4,14 +4,8 @@ node_js:
 notifications:
   email: false
 cache:
-  npm: true
   directories:
+    - ~/.npm
     - ~/.cache
-install:
-  - npm ci
-  - npm why chokidar
-  - npm run build
-script: 
-  - npm run cypress:CI
-
-  # //comment
+  override:
+    - npm ci
