@@ -9,8 +9,7 @@ cache:
     - ~/.cache
 install:
   - npm ci
-  - npm ls chokidar
-  - npm ls watchpack-chokidar2
+  - npm why chokidar
   - npm run build
 script: 
   - npm run cypress:CI
