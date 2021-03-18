@@ -21,9 +21,12 @@ const Movies = ({movies, sortedMovies, searchResults}) => {
 
   return (
     <section className="movieContainer">
-      {sortedMovies.length > 0 && determineMoviesToDisplay(sortedMovies)}
-      {searchResults.length > 0 && determineMoviesToDisplay(searchResults)}
-      {movies.length > 0 && determineMoviesToDisplay(movies)}
+      {sortedMovies.length > 0
+        ? determineMoviesToDisplay(sortedMovies)
+        : determineMoviesToDisplay(movies)}
+      {searchResults.length > 0
+        ? determineMoviesToDisplay(searchResults)
+        : determineMoviesToDisplay(movies)}
     </section>
   );
 }
