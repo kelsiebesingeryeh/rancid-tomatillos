@@ -14,7 +14,3 @@ before_script:
   - npm start -- --silent &
 script: 
   - $(npm bin)/cypress run
-deploy:
-  provider: vercel
-  app: rancid-tomatillos
-  skip_cleanup: true
