@@ -10,9 +10,7 @@ cache:
 install:
   - npm ci
   - npm run build
-before_script:
-  - npm start &
 script: 
-  - npm run cypress:run
+  - npm run cypress:CI
 
   # //comment
