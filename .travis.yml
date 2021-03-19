@@ -4,13 +4,8 @@ node_js:
 notifications:
   email: false
 cache:
-  npm: true
   directories:
+    - ~/.npm
     - ~/.cache
-install:
-  - npm ci
-  - npm run build || true
-before_script:
-  - npm start -- --silent &
-script: 
-  - $(npm bin)/cypress run
+  override:
+    - npm ci
